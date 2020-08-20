@@ -1,0 +1,11 @@
+#spring:
+#  datasource:
+#    username: boavizinhanca
+#    password: boavizinhanca
+#    url: jdbc:mysql://www.db4free.net:3306/dbboavizinhanca
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
