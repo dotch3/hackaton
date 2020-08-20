@@ -38,8 +38,7 @@ public class ItemService {
 	}
 	
 	public Item updateItem(Item item) {
-		Item existingItem = repository.findById(item.getIdItem()).orElse(item);
-		BeanUtils.copyProperties(item, existingItem);
-		return repository.save(existingItem);
+		Item existingItem = repository.findById(item.getIdItem()).orElse(null);
+		return existingItem != null ? repository.save(item) : null;
 	}
 }
