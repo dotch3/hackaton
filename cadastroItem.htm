@@ -8,13 +8,32 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Cadastro Item</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-    <!-- Bootstarp 4 -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- JavaScript -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+
+        </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+
+        </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous">
+
+        </script>
+
+    <script src="tagsinput.js"></script>
+
+
 
     <!-- Normalize.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -32,7 +51,8 @@
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/style01.css">
+
+    <link rel="stylesheet" href="css/styleItemCadastro.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -91,9 +111,9 @@
         <!-- Page Content  -->
         <div id="content" class="container-fluid">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light bv-nav">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row detalhe-item container-fluid ">
                         <div class="col-xs-10">
                             <button id="sidebarCollapse" class="btn btn-dark d-inline-block d-lg-none ml-auto"
                                 type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -103,13 +123,18 @@
                             </button>
                             Boa Vizinhança
                         </div>
-                        <div class="col-xs-2">
-                            <button id="sidebarCollapse" class="btn btn-dark d-inline-block d-lg-none ml-auto"
-                                data-toggle="modal" data-target=".modal-pesquisa" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <i class="fas fa-search" style="font-size: 20px;"></i>
-                            </button>
+                        <div class="col-xs-2 bv-search ">
+
+                            <form class="form-inline my-lg-0">
+                                <input class="bv-search" type="search" placeholder="Search" aria-label="Search">
+                                <!-- <button class="btn btn-dark " type="submit" id="search">
+                                    <i class="fas fa-search" style="font-size: 20px;color: black;"></i>
+                                </button> -->
+
+                                <button id="search" class="btn btn-dark my-sm-0">
+                                    <i class="fas fa-search" style="font-size: 20px;color: black;"></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -117,7 +142,8 @@
 
             <!-- Code for Register -->
             <div class="col-md-10 container-fluid">
-                <h2 style="text-align-last: center;color: #feb856;font-weight: 200;"> Cadastrar Item </h2>
+                <h2 style="text-align-last: center;color: #feb856;font-weight: 200;
+                font-size: 1rem;padding-top: 0.5rem"> Cadastrar Item </h2>
                 <form action="" method="post" enctype="multipart/form-data">
                     <!-- Section for the preview Image -->
                     <div class="col-md-4 preview-image container">
@@ -164,35 +190,38 @@
                         <div class="column container-fluid col-md-10">
                             <div class="form-group">
                                 <label for="title"> NOME</label>
-                                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome item"
-                                    value="" required />
+                                <input type="text" class="form-control" name="nome" id="nome" placeholder="" value=""
+                                    required />
                             </div>
                             <div class="form-group bv_options">
                                 <label for="quantidade"> QUANTIDADE</label> <br>
+                                <input type="text" class="form-control" name="quantidade" id="quantidade" value=""
+                                    required />
+
                                 <!-- dropdown box -->
-                                <select id="quantidade" name="quantidade" class="form-control ">
+                                <!-- <select id="quantidade" name="quantidade" class="form-control ">
                                     <option selected value="1"> 1</option>
                                     <option value="2"> 2</option>
                                     <option value="3"> 3</option>
                                     <option value="4"> 4</option>
                                     <option value="5"> 5</option>
-                                </select>
+                                </select> -->
                             </div>
 
-                            <div class="row container-fluid">
-                                <div class="form-group">
-                                    <label for="valor">VALOR</label>
-                                    <input type="text" class="form-control" name="valor" id="valor" value="" required />
-                                </div>
-                                <div class="detalhe-item">
-                                    <div class="form-check container-fluid">
+                            <div class="row container"></div>
+                            <div class="form-group ">
+                                <label for="valor">VALOR</label>
+                                <input type="text" class="form-control" name="valor" id="valor" value="" required />
+
+                                <div class="container">
+                                    <div class="form-check container-fluid container">
                                         <input class="form-check-input" type="radio" name="tipoMoeda" id="mvirtual"
                                             value="mvirtual" checked>
                                         <label class="form-check-label" for="mvirtual">
                                             Moeda virtual
                                         </label>
                                     </div>
-                                    <div class="form-check container-fluid">
+                                    <div class="form-check container-fluid container">
 
                                         <input class="form-check-input" type="radio" name="tipoMoeda" id="mreal"
                                             value="mreal">
@@ -207,19 +236,20 @@
                         </div>
 
                         <!-- Disponibilidade -->
-                        <div class=" row container col-md-6">
-                            <div class="detalhe-item container col-md-6">
-                                <img src="images/icons/calendar.png" alt="Selecionar data" title="Selecionar data" />
-                                <div class="form-group container">
+                        <div class="row container-fluid">
+                            <!-- <img src="images/icons/calendar.png" alt="Selecionar data" title="Selecionar data"
+                                style="width: 25px;  height: 25px;" /> -->
+                            <div class="detalhe-item">
+                                <div class="form-group container col-md-4">
                                     <label for="loan_start_date">Inicio empréstimo: </label>
                                     <br>
-                                    <input id="loan_start_date" name="loan_start_date" type="date" />
+                                    <input class="bv" id="loan_start_date" name="loan_start_date" type="date" />
                                 </div>
 
-                                <div class="form-group container">
+                                <div class="form-group container col-md-4">
                                     <label for="loan_end_date">Fim empréstimo: </label>
                                     <br>
-                                    <input id="loan_end_date" name="loan_end_date" type="date" />
+                                    <input class="bv" id="loan_end_date" name="loan_end_date" type="date" />
                                 </div>
                             </div>
                         </div>
@@ -237,104 +267,110 @@
                             </div>
                             <br>
                         </div>
-                    </div>
 
-                    <!-- Cadastrar -->
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-10 mb-6; text-right text-md-right bv">
-                                <button type="submit"
-                                    class="btn btn-outline-secondary btn-lg btn-block">Cadastrar</button>
+                        <!-- Cadastrar -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-10 mb-6; text-right text-md-right bv">
+                                    <button type="submit" class="btn btn-outline-secondary btn-lg btn-block" style="background: #feb856 !important;  color: white !important;  
+                                        font-weight: 100 !important; border-color: #feb856;
+                                        margin-bottom: 1rem; font-size: 0.9rem;">CADASTRAR</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
                 </form>
             </div>
-
             <!-- Start Tags -->
             <div class="container-fluid">
-                <span class="badge badge-pill badge-success">Success</span>
-                <span class="badge badge-pill badge-danger">Danger</span>
-                <span class="badge badge-pill badge-warning">Warning</span>
-                <span class="badge badge-pill badge-info">Info</span>
-                <span class="badge badge-pill badge-light">Light</span>
-                <span class="badge badge-pill badge-dark">Dark</span>
+
+
             </div>
             <!-- End tags -->
 
             <!-- End code Register -->
+        </div>
 
-            <div class="navbar navbar-default navbar-fixed-bottom">
-                <div class="container">
-                    <p class="navbar-text pull-left">
 
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xs-1"></div>
-                            <div class="col-xs-10"><img src="images/menu_bottom.png" width="268" height="50" /></div>
-                            <div class="col-xs-3"></div>
-                        </div>
+
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p class="navbar-text pull-left">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-10"><img src="images/menu_bottom.png" width="268" height="50" /></div>
+                        <div class="col-xs-3"></div>
                     </div>
-
-                    </p>
                 </div>
-            </div>
 
-        </div>
-
-        <div class="overlay"></div>
-
-        <!-- Small modal -->
-        <div class="modal fade modal-pesquisa" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    Ao clicar conecta com a API Java de pesquisa
-                </div>
+                </p>
             </div>
         </div>
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-            integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
-            crossorigin="anonymous"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed --> crossorigin="anonymous"
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-            crossorigin="anonymous"></script>
+    </div>
 
-        <!-- jQuery Custom Scroller CDN -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <div class="overlay"></div>
 
-        <!-- Ler JSON de itens -->
-        <script src="js/scripts01.js"></script>
+    <!-- Small modal -->
+    <div class="modal fade modal-pesquisa" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                Ao clicar conecta com a API Java de pesquisa
+            </div>
+        </div>
+    </div>
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#sidebar").mCustomScrollbar({
-                    theme: "minimal"
-                });
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed --> crossorigin="anonymous"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
 
-                $('#dismiss, .overlay').on('click', function () {
-                    $('#sidebar').removeClass('active');
-                    $('.overlay').removeClass('active');
-                });
+    <!-- jQuery Custom Scroller CDN -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-                $('#sidebarCollapse').on('click', function () {
-                    $('#sidebar').addClass('active');
-                    $('.overlay').addClass('active');
-                    $('.collapse.in').toggleClass('in');
-                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-                });
+    <!-- Ler JSON de itens -->
+    <script src="js/scripts01.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
             });
-        </script>
-        <script type="text/javascript">
-            // Material Select Initialization
-            $(document).ready(function () {
-                $('.mdb-select').materialSelect();
+
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
             });
-        </script>
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    <!-- Dropdown -->
+    <script type="text/javascript">
+        // Material Select Initialization
+        $(document).ready(function () {
+            $('.mdb-select').materialSelect();
+        });
+    </script>
+    <!-- script tag inputs -->
+    <script src="assets/jquery.min.js"></script>
+
+    <script src="assets/bootstrap-tagsinput.js"></script>
+
+
 
 </body>
 

@@ -308,15 +308,3 @@ ul.CTAs a {
   color: white !important;
   font-weight: 100 !important;
 }
-
-/* Cadastro Item Detalhe */
-.detalhe-item {
-  display: flex;
-}
-.bv_options select {
-  direction: rtl;
-}
-
-.bv_options option {
-  direction: ltr;
-}
