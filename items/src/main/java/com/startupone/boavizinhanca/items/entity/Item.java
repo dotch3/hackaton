@@ -3,6 +3,7 @@ package com.startupone.boavizinhanca.items.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,7 +12,7 @@ import javax.persistence.Table;
 public class Item {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "id_item")
 	private Integer idItem;
 	@Column(name = "id_user_proprietario")
@@ -25,8 +26,9 @@ public class Item {
 	private String tags;
 	private String descricao;
 	private byte[] foto;
-	@Column(name = "data_sugestao_devolucao")
-	private String dataSugestaoDevolucao;
+	private String observacao;
+	@Column(name = "data_publicacao")
+	private String dataPublicacao;
 	
 	public Integer getIdItem() {
 		return idItem;
@@ -82,10 +84,16 @@ public class Item {
 	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
-	public String getDataSugestaoDevolucao() {
-		return dataSugestaoDevolucao;
+	public String getObservacao() {
+		return observacao;
 	}
-	public void setDataSugestaoDevolucao(String dataSugestaoDevolucao) {
-		this.dataSugestaoDevolucao = dataSugestaoDevolucao;
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
+	}
+	public String getDataPublicacao() {
+		return dataPublicacao;
+	}
+	public void setDataPublicacao(String dataPublicacao) {
+		this.dataPublicacao = dataPublicacao;
 	}
 }
