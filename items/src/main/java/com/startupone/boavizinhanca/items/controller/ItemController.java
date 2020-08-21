@@ -32,13 +32,13 @@ public class ItemController {
 		return service.getItems();
 	}
 	
-	@GetMapping("/find/{id}")
-	public Item findById(int id){
+	@GetMapping("/findItem/{id}")
+	public Item findById(@PathVariable int id){
 		return service.getItemById(id);
 	}
 	
-	@GetMapping("/find/{idProprietario}")
-	public List<Item> findByIdProprietario(int idProprietario){
+	@GetMapping("/findItemProp/{idProprietario}")
+	public List<Item> findByIdProprietario(@PathVariable int idProprietario){
 		return service.getItemsByIdProprietario(idProprietario);
 	}
 	
