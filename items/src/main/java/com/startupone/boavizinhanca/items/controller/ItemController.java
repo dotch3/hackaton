@@ -22,7 +22,7 @@ public class ItemController {
 	@Autowired
 	private ItemService service;
 	
-	@PostMapping("/add")
+	@PostMapping("/publish")
 	public Item addItem(@RequestBody Item item) {
 		return service.saveItem(item);
 	}
@@ -37,9 +37,9 @@ public class ItemController {
 		return service.getItemById(id);
 	}
 	
-	@GetMapping("/findItemProp/{idProprietario}")
-	public List<Item> findByIdProprietario(@PathVariable int idProprietario){
-		return service.getItemsByIdProprietario(idProprietario);
+	@GetMapping("/findItemProprietario/{id}")
+	public List<Item> findByIdProprietario(@PathVariable int id){
+		return service.getItemsByIdProprietario(id);
 	}
 	
 	@PutMapping("/update")
@@ -47,7 +47,7 @@ public class ItemController {
 		return service.updateItem(item);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("/delete/{id}")
 	public String deleteItem(@PathVariable int id) {
 		return service.deleteItem(id);
 	}
