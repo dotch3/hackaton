@@ -149,8 +149,8 @@
                     <div class="col-md-4 preview-image container">
                         <div class="personal-image">
                             <div class="profile-img img_upload">
-                                <label class="label">
-                                    <input type="file" multiple accept='image/*' name="imageItem" id="imageItem"
+                                <label for="imgItem" class="label">
+                                    <input type="file" multiple accept='image/*' name="imgItem" id="imgItem"
                                         style="width: 100px;">
                                     <figure class="personal-figure">
                                         <img id="imgProfile" style="width: 160px;" class="personal-avatar">
@@ -158,7 +158,6 @@
                                             <img
                                                 src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
                                         </figcaption>
-
                                     </figure>
                                 </label>
                             </div>
@@ -169,7 +168,7 @@
                         crossorigin="anonymous"></script>
                     <script>
                         $(function () {
-                            $('#imageItem').change(function () {
+                            $('#imgItem').change(function () {
                                 $('#imgProfile').show();
                                 const file = $(this)[0].files[0];
                                 console.log(file);
@@ -178,25 +177,41 @@
                                     $('#imgProfile').attr('src', fileReader.result)
                                 }
                                 fileReader.readAsDataURL(file)
-
                             })
                         })
                     </script>
                     <!-- End preview Image -->
+                    <!-- <input id="inp" type='file'> -->
+                    <p id="foto" style=" display: none;"></p>
 
+                    <!-- Converting the image into base 64 -->
+                    <script>
+                        function readFile() {
+                            if (this.files && this.files[0]) {
+                                var fileReader = new FileReader();
+                                fileReader.addEventListener("load", function (e) {
+                                    document.getElementById("foto").src = e.target.result;
+                                });
+
+                                fileReader.readAsDataURL(this.files[0]);
+                            }
+                        }
+                        document.getElementById("imgItem").addEventListener("change", readFile);
+                    </script>
+                    <!-- end converter -->
 
                     <!-- Detalhes do item -->
                     <div class="container-fluid">
                         <div class="column container-fluid col-md-10">
                             <div class="form-group">
-                                <label for="title"> NOME</label>
+                                <label for="nome"> NOME</label>
                                 <input type="text" class="form-control" name="nome" id="nome" placeholder="" value=""
                                     required />
                             </div>
                             <div class="form-group bv_options">
-                                <label for="quantidade"> QUANTIDADE</label> <br>
-                                <input type="text" class="form-control" name="quantidade" id="quantidade" value=""
-                                    required />
+                                <label for="quantidadeDisponivel"> QUANTIDADE</label> <br>
+                                <input type="text" class="form-control" name="quantidadeDisponivel"
+                                    id="quantidadeDisponivel" value="" required />
 
                                 <!-- dropdown box -->
                                 <!-- <select id="quantidade" name="quantidade" class="form-control ">
@@ -241,15 +256,17 @@
                                 style="width: 25px;  height: 25px;" /> -->
                             <div class="detalhe-item">
                                 <div class="form-group container col-md-4">
-                                    <label for="loan_start_date">Inicio empréstimo: </label>
+                                    <label for="dataSugestaoEmprestimo">Inicio empréstimo: </label>
                                     <br>
-                                    <input class="bv" id="loan_start_date" name="loan_start_date" type="date" />
+                                    <input class="bv" id="dataSugestaoEmprestimo" name="dataSugestaoEmprestimo"
+                                        type="date" />
                                 </div>
 
                                 <div class="form-group container col-md-4">
-                                    <label for="loan_end_date">Fim empréstimo: </label>
+                                    <label for="dataSugestaoDevolucao">Fim empréstimo: </label>
                                     <br>
-                                    <input class="bv" id="loan_end_date" name="loan_end_date" type="date" />
+                                    <input class="bv" id="dataSugestaoDevolucao" name="dataSugestaoDevolucao"
+                                        type="date" />
                                 </div>
                             </div>
                         </div>
@@ -358,6 +375,7 @@
             });
         });
     </script>
+
     <!-- Dropdown -->
     <script type="text/javascript">
         // Material Select Initialization
