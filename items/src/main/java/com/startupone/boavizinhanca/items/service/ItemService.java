@@ -26,8 +26,19 @@ public class ItemService {
 	
 	public List<Item> getItems(){
 		List<Item> items = repository.findAll();
+		pesquisarNotaProprietario(items);
 		calcularPeriodoPublicacao(items);
 		return items;
+	}
+
+	private void pesquisarNotaProprietario(List<Item> items) {
+		if(items != null) {
+			for(Item item : items) {
+				// TODO colocar consulta Nota Usuário
+				item.setNotaProprietario("5.0");
+			}
+		}
+		
 	}
 
 	private void calcularPeriodoPublicacao(List<Item> items) {
@@ -49,7 +60,7 @@ public class ItemService {
 	
 	public Item getItemById(int id){
 		Item item = repository.findById(id).orElse(null);
-		if (item != null) { calcularPeriodoPublicacao(Arrays.asList(item)); }
+		if (item != null) { calcularPeriodoPublicacao(Arrays.asList(item)); pesquisarNotaProprietario(Arrays.asList(item));}
 		else { item = new Item(); item.setObservacao("Item nexistente!!!"); }
 		return item;
 	}
@@ -57,6 +68,7 @@ public class ItemService {
 	public List<Item> getItemsByIdProprietario(int id){
 		List<Item> items = repository.findByIdUserProprietario(id);
 		calcularPeriodoPublicacao(items);
+		pesquisarNotaProprietario(items);
 		return items;
 	}
 	
@@ -69,7 +81,10 @@ public class ItemService {
 		Item existingItem = repository.findById(item.getIdItem()).orElse(null);
 		if(existingItem != null) {
 			item.setDataPublicacao(existingItem.getDataPublicacao());
-			return repository.save(item);
+			item =  repository.save(item);
+			calcularPeriodoPublicacao(Arrays.asList(item));
+			pesquisarNotaProprietario(Arrays.asList(item));
+			return item;
 		}
 		return null;
 	}

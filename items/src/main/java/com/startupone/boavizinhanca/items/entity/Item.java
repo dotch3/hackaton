@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tb_item_publicado")
@@ -29,6 +30,8 @@ public class Item {
 	private String observacao;
 	@Column(name = "data_publicacao")
 	private String dataPublicacao;
+	@Transient
+	private String notaProprietario;
 	
 	public Integer getIdItem() {
 		return idItem;
@@ -95,5 +98,11 @@ public class Item {
 	}
 	public void setDataPublicacao(String dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
+	}
+	public String getNotaProprietario() {
+		return notaProprietario;
+	}
+	public void setNotaProprietario(String notaProprietario) {
+		this.notaProprietario = notaProprietario;
 	}
 }
