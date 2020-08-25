@@ -309,6 +309,10 @@ ul.CTAs a {
 .detalhe-item {
   display: flex;
   flex: 50%;
+  margin-right: -10px !important;
+  margin-left: -10px !important;
+  padding-right: 20x !important;
+  padding-left: 20x !important;
 }
 .bv_options select {
   direction: rtl;
@@ -323,14 +327,14 @@ ul.CTAs a {
 }
 
 .form-control {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
 }
 .form-group {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
 }
 .form-group label {
   color: #48dce2;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   font-weight: 400;
 }
 
