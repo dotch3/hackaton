@@ -1,0 +1,26 @@
+COMO RODAR O FRONTEND DO APP BOA VIZINHANÇA
+===================================================================
+
+1) Descompactar o arquivo AppBoaVizinhanca_v0.5.zip em qualquer diretório do computador com Internet e um navegador (Firefox, Chrome, Safari, Edge, etc);
+
+2) Rodar o arquivo Default.htm no navegador (de preferência Firefox ou Chrome que tem um modo que simula smartphone);
+
+2.1) Abriu no Chrome? Aperte F12, depois aperte CTRL + Shift + M. A opção se chama "Toogle device toolbar";
+
+2.2) Abriu no Firefox? Aperte CTRL + Shift + M. A opção se chama "Responsive design mode".
+
+3) No Default.htm, clique no botão "ENTRAR" para ir pro link Itens.htm;
+
+4) O Itens.htm acessa um JSON* que criei hospedei no GIT para listar os itens para empréstimo no Boa Vizinhança;
+
+5) Vamos precisar de um WebService Java para o usuário digitar um item, por exemplo "Martelo", retorna um JSON que foi lá no banco de dados consultar se existe registros "Martelo" e trazer os registros conforme o json abaixo hospedado no GIT;
+
+6) Vamos precisar de um WebService Java que a página passa um ID do item e ele retorna um JSON com os detalhes do item para empréstimo;
+
+7) Vamos precisar de um WebService Java para salvar no banco de dados os itens que o usuário clicar para salvar (imagem de coração);
+
+8) Deixei de informar algo importante ou algo que o backend/frontend pode fazer? Alguma dúvida? Envie mensagem no Whatsapp do grupo.
+
+
+URL do JSON: https://github.com/reinaldots/boavizinhanca/blob/master/itens.json
+
