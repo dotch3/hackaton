@@ -266,8 +266,8 @@ ul.CTAs a {
 }
 .personal-figure {
   position: relative;
-  width: 160px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 .personal-avatar {
   cursor: pointer;
@@ -299,10 +299,10 @@ ul.CTAs a {
 }
 .personal-figcaption > img {
   margin-top: 32.5px;
-  width: 50px;
-  height: 50px;
-  margin-right: 50px;
-  margin-left: 50px;
+  width: 40px;
+  height: 40px;
+  margin-right: 40px;
+  margin-left: 40px;
 }
 
 /* Cadastro Item Detalhe */
@@ -313,6 +313,7 @@ ul.CTAs a {
   margin-left: -10px !important;
   padding-right: 20x !important;
   padding-left: 20x !important;
+  font-size: 0.9rem !important;
 }
 .bv_options select {
   direction: rtl;
@@ -327,7 +328,11 @@ ul.CTAs a {
 }
 
 .form-control {
-  font-size: 0.75rem;
+  font-size: 0.75rem !important;
+  padding-top: 0.175rem !important;
+  padding-right: 0.175rem !important;
+  padding-bottom: 0.175rem !important;
+  padding-left: 0.175rem !important;
 }
 .form-group {
   margin-bottom: 0.1rem;
@@ -336,11 +341,13 @@ ul.CTAs a {
   color: #48dce2;
   font-size: 0.75rem;
   font-weight: 400;
+  margin-bottom: 0.1rem !important;
 }
 
 .form-group input {
   border: 1px solid #12bbad;
   border-radius: 0.5rem;
+  margin-bottom: 0.1rem !important;
 }
 
 .form-group .bv {
@@ -396,11 +403,60 @@ ul.CTAs a {
 .bv-search input {
   border-radius: 6px;
   border-color: #12bbad;
-  font-weight: 300;
   font-size: 0.9rem;
   padding-left: 0.5rem;
 }
 
 .bv-nav {
   background: #12bbad !important;
+}
+
+.result {
+  color: #ec7d2c !important;
+  font-size: 0.75rem !important;
+  font-weight: 300 !important;
+  line-height: 1em !important;
+}
+
+/* CHIPS */
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 18px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.closebtn {
+  padding-left: 10px;
+  color: #888;
+  font-weight: bold;
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: #000;
+}
+
+.input-tags {
+  width: 100%;
+  padding: 15px;
+  display: block;
+  margin: 0 auto;
+}
+
+.label-info {
+  background-color: #5bc0de;
+  padding: 3px;
 }
