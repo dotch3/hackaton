@@ -399,47 +399,13 @@ ul.CTAs a {
   line-height: 1em !important;
 }
 
-/* CHIPS */
-.chip {
-  display: inline-block;
-  padding: 0 25px;
-  height: 50px;
-  font-size: 18px;
-  line-height: 50px;
-  border-radius: 25px;
-  background-color: #f1f1f1;
-}
+/* PUBLISH */
 
-.chip img {
-  float: left;
-  margin: 0 10px 0 -25px;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+.publish {
+  font-size: 1.2rem !important;
+  padding-top: 0.175rem !important;
+  padding-right: 0.175rem !important;
+  padding-bottom: 0.175rem !important;
+  font-weight: 400 !important;
+  color: rgba(31, 30, 30, 0.63);
 }
-.closebtn {
-  padding-left: 10px;
-  color: #888;
-  font-weight: bold;
-  float: right;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.closebtn:hover {
-  color: #000;
-}
-
-.input-tags {
-  width: 100%;
-  padding: 15px;
-  display: block;
-  margin: 0 auto;
-}
-
-.label-info {
-  background-color: #5bc0de;
-  padding: 3px;
-}
-
-/* tags */
