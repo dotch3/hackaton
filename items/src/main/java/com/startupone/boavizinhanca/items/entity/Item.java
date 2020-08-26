@@ -8,8 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "tb_item_publicado")
+@Getter
+@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class Item {
 	
 	@Id

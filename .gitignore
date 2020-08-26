@@ -1,13 +1,46 @@
-<<<<<<< HEAD
+.settings
+.project
+items/target/
+BV.code-workspace
+items/.project
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
 /users-java/mvnw
 /users-java/*.cmd
 /users-java/.mvn
 /cad-users-java/.mvn
 /cad-users-java/mvnw
 /cad-users-java/*.cmd
-=======
 
-items/target/
-
-items/bin/
->>>>>>> 0f216d5ddfcf2b1ec2c813530ae138693f2faa1b
