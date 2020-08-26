@@ -1,8 +1,8 @@
 #spring:
 #  datasource:
-#    username: boavizinhanca
-#    password: boavizinhanca
-#    url: jdbc:mysql://www.db4free.net:3306/dbboavizinhanca
+#    username: boavizinhanca@boavizinhanca
+#    password: Senhadificil123
+#    url: jdbc:sqlserver://boavizinhanca.database.windows.net:1433/dbboavizinhanca
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #  jpa:
 #    show-sql: true
