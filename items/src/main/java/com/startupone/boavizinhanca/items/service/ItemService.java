@@ -3,8 +3,11 @@ package com.startupone.boavizinhanca.items.service;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -70,6 +73,35 @@ public class ItemService {
 		calcularPeriodoPublicacao(items);
 		pesquisarNotaProprietario(items);
 		return items;
+	}
+	
+	public List<Item> getItemsBySearchText(String textSearch){
+		List<Item> resultItems = new ArrayList<Item>();
+		
+		Map<Integer, Item> mapItems = new HashMap<Integer, Item>();
+		String [] words = textSearch.split(" ");
+		for(String word : Arrays.asList(words)) {			
+			filtraItems(mapItems ,repository.findByNomeContains(word));
+			filtraItems(mapItems ,repository.findByTagsContains(word));
+		}
+		filtraItems(mapItems ,repository.findByDescricaoContains(textSearch));
+		filtraItems(mapItems ,repository.findByNomeLike(textSearch));
+		filtraItems(mapItems ,repository.findByTagsLike(textSearch));
+		filtraItems(mapItems ,repository.findByDescricaoLike(textSearch));
+		
+		resultItems.addAll(mapItems.values());
+		
+		calcularPeriodoPublicacao(resultItems);
+		pesquisarNotaProprietario(resultItems);
+		return resultItems;
+	}
+	
+	private void filtraItems(Map<Integer, Item> mapItems, List<Item> items){
+		for(Item item : items) {
+			if(!mapItems.containsKey(item.getIdItem())) {
+				mapItems.put(item.getIdItem(), item);
+			}
+		}
 	}
 	
 	public String deleteItem(int id) {

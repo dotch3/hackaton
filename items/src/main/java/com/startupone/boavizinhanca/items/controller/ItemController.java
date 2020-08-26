@@ -46,6 +46,11 @@ public class ItemController {
 		return service.getItemsByIdProprietario(id);
 	}
 	
+	@GetMapping("/search/{text}")
+	public List<Item> findByIdProprietario(@PathVariable String text){
+		return service.getItemsBySearchText(text);
+	}
+	
 	@PutMapping("/update")
 	public Item updateItem(@RequestBody Item item) {
 		return service.updateItem(item);
