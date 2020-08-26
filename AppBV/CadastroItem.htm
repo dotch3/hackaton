@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Cadastro Item</title>
+    <title>APP Boa Vizinhança - Cadastrar item</title>
 
-    <!-- Bootstrap 4 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
     <!-- Normalize.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -20,7 +20,6 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
-
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
         integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
@@ -29,6 +28,18 @@
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
         crossorigin="anonymous"></script>
 
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Tags -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="dist/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+
+
+    <!-- Cadastro Style -->
     <link rel="stylesheet" href="css/styleItemCadastro.css">
 
 </head>
@@ -84,8 +95,8 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light bv-nav">
                 <div class="container-fluid">
-                    <div class="row detalhe-item">
-                        <div class="col-xs-10">
+                    <div class="row detalhe-item  ">
+                        <div class="col">
                             <button id="sidebarCollapse" class="btn btn-dark d-inline-block d-lg-none ml-auto"
                                 type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                                 aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -94,66 +105,45 @@
                             </button>
                             Boa Vizinhança
                         </div>
-                        <div class="col-xs-2 bv-search ">
+                        <div class="col bv-search ">
 
                             <form class="form-inline my-lg-0">
-                                <input class="bv-search" type="search" placeholder="Search" aria-label="Search">
+                                <input class="bv-search" type="search" placeholder="Pesquisar" aria-label="Search">
 
-                                <button id="search" class="btn btn-dark my-sm-0">
+                                <button id="search" class="btn btn-dark my-sm-0" data-toggle="modal"
+                                    data-target=".modal-pesquisa">
                                     <i class="fas fa-search" style="font-size: 20px;color: black;"></i>
                                 </button>
                             </form>
                         </div>
+
                     </div>
                 </div>
             </nav>
 
             <!-- Code for Cadastrar novo Item -->
             <div class="col-md-10 container-fluid">
-                <h2 style="text-align-last: center;color: #feb856;font-weight: 200;
-                font-size: 1rem;padding-top: 0.5rem"> Cadastrar Item </h2>
-                <!-- For printing result from server -->
-                <div class="col-md-4 preview-image container">
-                    <p class="result" name="result" id="result"></p>
-                </div>
+                <h5 style="text-align-last: center;color: #EFA845;font-weight: 200;
+                padding-top: 0.5rem"> <strong>CADASTRAR ITEM</strong></h5>
+
                 <form action="JavaScript:sendJsonData()" enctype="multipart/form-data" class="container">
-                    <div class="row div-form container-fluid">
-                        <!-- Section for testing ID user -->
-                        <div style="display: none;">
-                            <!-- <label for="userId"> User 1 (test)</label> -->
-                            <input type="text" class="form-control" name="idUserProprietario" id="idUserProprietario"
-                                placeholder="" value="1" required />
-                            <!-- Tags -->
-                            <input type="text" class="form-control" name="tags" id="tags" placeholder=""
-                                value="Ferramenta" required />
-                            <!-- Observaçao -->
-                            <input type="text" class="form-control" name="observacao" id="observacao" placeholder=""
-                                value="Item inserido para teste UI" required />
-                        </div>
-
-                    </div>
-
-
                     <!-- Section for the preview Image -->
                     <div class="col-md-4 preview-image container">
                         <div class="personal-image">
-                            <div class="profile-img img_upload">
-                                <label for="imgItem" class="label">
-                                    <input type="file" multiple accept='image/*' name="imgItem" id="imgItem"
-                                        style="width: 100px;">
-                                    <figure class="personal-figure">
-                                        <img id="imgProfile" style="width: 120px;" class="personal-avatar">
-                                        <figcaption class="personal-figcaption">
-                                            <img src="images/icons/camera-white.png">
-                                        </figcaption>
-                                    </figure>
-                                </label>
-                            </div>
+                            <label for="imgItem">
+                                <input type="file" multiple accept='image/*' name="imgItem" id="imgItem">
+                                <figure class="personal-figure">
+                                    <img id="imgProfile" style="width: 120px;" class="personal-avatar">
+                                    <figcaption class="personal-figcaption">
+                                        <img src="images/icons/camera-white.png">
+                                    </figcaption>
+                                </figure>
+                            </label>
                         </div>
                     </div>
 
                     <!-- <input oculto para a imagem em base 64> -->
-                    <input type="text" name="foto" id="foto" style=" display: none;" value="">
+                    <input type="text" name="foto" id="foto" style=" display: none;" value="" required>
 
                     <!-- Detalhes do item -->
                     <div class="row">
@@ -161,35 +151,27 @@
                             <div class="form-group">
                                 <label for="nome"> NOME</label>
                                 <input type="text" class="form-control" name="nome" id="nome" placeholder="" value=""
-                                    onblur="checkData(this.value)" required />
+                                    onblur="checkData(this.value)" autocomplete=“off” />
                             </div>
 
                             <div class="md-form mb-0 form-group ">
                                 <label for="message">DESCRIÇÃO</label>
                                 <textarea type="text" id="descricao" name="descricao" rows="2"
                                     class="form-control md-textarea" placeholder="" onchange="checkData(this.value)"
-                                    style="resize: none;"></textarea>
+                                    style="resize: none;" autocomplete=“off”></textarea>
                             </div>
 
                             <div class="form-group bv_options">
                                 <label for="quantidadeDisponivel"> QUANTIDADE</label> <br>
                                 <input type="text" class="form-control" name="quantidadeDisponivel"
-                                    id="quantidadeDisponivel" value="" onblur="checkData(this.value)" required />
-
-                                <!-- dropdown box -->
-                                <!-- <select id="quantidade" name="quantidade" class="form-control ">
-                                    <option selected value="1"> 1</option>
-                                    <option value="2"> 2</option>
-                                    <option value="3"> 3</option>
-                                    <option value="4"> 4</option>
-                                    <option value="5"> 5</option>
-                                </select> -->
+                                    id="quantidadeDisponivel" value="" onblur="checkData(this.value)"
+                                    autocomplete=“off” />
                             </div>
                             <!-- VALOR -->
                             <div class="form-group ">
                                 <label for="valor">VALOR</label>
                                 <input type="text" class="form-control" name="valor" id="valor" value=""
-                                    onblur="checkData(this.value)" required />
+                                    onblur="checkData(this.value)" autocomplete=“off” />
 
                                 <div class="container detalhe-item">
                                     <div class="form-check container-fluid container">
@@ -240,30 +222,41 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <!-- TAGS -->
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-10 container">
                                     <div class="form-group ">
-                                        <label for="message">TAGS</label>
-                                        <div class="chip">
-                                            <span class="closebtn"
-                                                onclick="this.parentElement.style.display='none'">&times;</span>
-                                        </div>
-                                        <br>
+                                        <label for="tags">TAGS</label>
+                                        <input type="text" value="Impressora, Electronico, Software" name="tags"
+                                            id="tags" data-role="tagsinput" onchange="checkData(this.value)" />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- End tags -->
+                        <!-- User SHADOW -->
+                        <div class="row div-form container-fluid">
+                            <!-- Section for testing ID user -->
+                            <div style="display: none;">
+                                <!-- <label for="userId"> User 1 (test)</label> -->
+                                <input type="text" class="form-control" name="idUserProprietario"
+                                    id="idUserProprietario" placeholder="" value="1" />
+                                <!-- Tags -->
+                                <!-- <input type="text" class="form-control" name="tags" id="tags" value="" /> -->
+                            </div>
 
-                        <div class="container-fluid">
+                        </div>
+
+                        <div class="container">
                             <div class="row">
+                                <br>
                                 <button type="submit" class="btn btn-outline-secondary btn-lg btn-block" style="background: #feb856 !important;  color: white !important;  
-                                        font-weight: 100 !important; border-color: #feb856;
-                                        margin-bottom: 1rem; font-size: 0.9rem;">CADASTRAR</button>
+                                        font-weight: 400 !important; border-color: #feb856;
+                                        margin-bottom: 1rem; font-size: 1.25rem;">CADASTRAR</button>
                                 <p>&nbsp;</p>
                             </div>
                         </div>
@@ -275,7 +268,7 @@
 
 
             <p>&nbsp;</p>
-            <div class="navbar navbar-default  fixed-bottom">
+            <div class="navbar navbar-default navbar-fixed-bottom">
                 <div class="container">
                     <p class="navbar-text pull-left">
 
@@ -297,11 +290,12 @@
         <div class="overlay"></div>
 
         <!-- Small modal -->
-        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        <div class="modal fade modal-login-invalido" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-sm">
+                <!-- For printing result from server -->
                 <div class="modal-content">
-                    A publicação foi salva para ver depois.
+                    <p class="result" name="result" id="result"></p>
                 </div>
             </div>
         </div>
@@ -326,47 +320,40 @@
 
 
 
-        <!-- JavaScript -->
-
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.js"
-            integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
             crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        <!-- Include all compiled plugins (below), or include individual files as needed --> crossorigin="anonymous"
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
             crossorigin="anonymous"></script>
-
-
 
         <!-- jQuery Custom Scroller CDN -->
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-        <!-- Font Awesome JS -->
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
-            crossorigin="anonymous"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-            crossorigin="anonymous"></script>
-
-        <!-- MDB core JavaScript -->
-        <!-- <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-        <script>"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"</script>
-        <script>"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"</script>
-        <script>"https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"</script> -->
-
-
-        <script>"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"</script>
+        <!-- Tags -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+        <script src="dist/bootstrap-tagsinput.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/generic.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/html.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/javascript.js"></script>
 
 
         <!-- FUNCTIONS -->
+        <!-- JS functions -->
+        <script src="js/scripts.js"></script>
+
 
         <script type="text/javascript">
             $(document).ready(function () {
+                checkCookie();
+
                 $("#sidebar").mCustomScrollbar({
                     theme: "minimal"
                 });
@@ -490,10 +477,18 @@
                         result.innerHTML = "Item criado com sucesso!" + response["idItem"] + " - " + response["nome"];
 
                     }
-                    else {
+                    else if (xhr.status === 400) {
                         result = document.getElementById("result");
                         response = JSON.parse(this.responseText);
                         result.innerHTML = "parece que esqueci alguma coisa.  -_-' <br>" + response["error"] + " - Status: " + response["status"];
+
+                        console.log('Response:', response["idItem"]);
+                    }
+
+                    else if (xhr.status === 500) {
+                        result = document.getElementById("result");
+                        response = JSON.parse(this.responseText);
+                        result.innerHTML = " -_-' <br>" + response["error"] + " - Status: " + response["status"];
 
                         console.log('Response:', response["idItem"]);
                     }

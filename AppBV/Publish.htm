@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>APP Boa Vizinhança - Novo Item</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Normalize.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        crossorigin="anonymous">
+
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+
+    <!-- Cadastro Style -->
+    <link rel="stylesheet" href="css/styleItemCadastro.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div id="dismiss">XX
+                <i class="fas fa-times-circle"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h5>Menu</h5>
+                <br />
+                <img src="images/profile.png" width="94" height="94" alt="Perfil" />
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Minhas publicações</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Item 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Item 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Item 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Publicações salvas</a>
+                </li>
+                <li>
+                    <a href="#">Configurações</a>
+                </li>
+                <li>
+                    <a href="#">Central de ajuda</a>
+                </li>
+            </ul>
+            <ul class="list-unstyled">
+                <li>
+                    <a href="Default.htm">Sair</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="container-fluid">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light bv-nav">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <button id="sidebarCollapse" class="btn btn-dark d-inline-block d-lg-none ml-auto"
+                                type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <i class="fas fa-align-justify" style="font-size: 20px;"></i>
+                            </button>
+                            Boa Vizinhança
+                        </div>
+                        <div class="col-xs-4">
+                            <!-- Search form -->
+                            <form class="form-inline d-flex justify-content-center md-form form-sm">
+                                <input class="form-control form-control-sm mr-3 w-75" type="text"
+                                    placeholder="Pesquisar" style="margin-top: 5px; width: 120px; height: 25px"
+                                    aria-label="Search" />
+                            </form>
+                        </div>
+                        <div class="col-xs-2">
+                            <button id="sidebarCollapse" class="btn btn-dark d-inline-block d-lg-none ml-auto"
+                                data-toggle="modal" data-target=".modal-pesquisa" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="fas fa-search" style="font-size: 20px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Code for Cadastrar novo Item -->
+            <div class="col-md-10 container-fluid">
+
+                <div class="form-group">
+                    <h5 style="text-align-last: center;color: #EFA845;font-weight: 200;
+                                    padding-top: 0.5rem"> <strong>NOVO ITEM</strong>  </h5>
+                    <!-- For printing result from server -->
+
+                    <div class="container">
+                        <!-- Section for the preview Image -->
+                        <div class="col-md-4 preview-image container">
+                            <div class="personal-image">
+                                <label for="imgItem">
+                                    <input type="file" multiple accept='image/*' name="imgItem" id="imgItem">
+                                    <figure class="personal-figure">
+                                        <img id="imgProfile" style="width: 120px;" class="personal-avatar">
+                                        <figcaption class="personal-figcaption">
+                                            <img src="images/icons/camera-white.png">
+                                        </figcaption>
+                                    </figure>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="idProprietario"> ID PROPRIETARIO</label>
+                            <input type="text" class="form-control" name="idProprietario" id="idProprietario"
+                                placeholder="" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="nome"> NOME</label>
+                            <input type="text" class="form-control" name="nome" id="nome" placeholder="" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="nome"> QUANTIDADE DISPONIVEL</label>
+                            <input type="text" class="form-control" name="quantidadeDisponivel"
+                                id="quantidadeDisponivel" placeholder="" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="nome"> VALOR</label>
+                            <input type="text" class="form-control" name="valor" id="valor" placeholder="" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="nome"> TIPO VALOR</label>
+                            <input type="text" class="form-control" name="tipoValor" id="tipoValor" placeholder=""
+                                value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="nome"> DESCRIÇÃO</label>
+                            <input type="text" class="form-control" name="descricao" id="descricao" placeholder=""
+                                value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="nome"> IMAGEM</label>
+                            <input type="text" class="form-control" name="foto" id="foto" placeholder="" value="" />
+                        </div>
+
+                    </div>
+                </div>
+</body>
+<script>
+
+
+
+
+</script>
+
+</html>

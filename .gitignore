@@ -1,4 +1,5 @@
-
+.settings
+.project
 items/target/
 BV.code-workspace
 items/.project

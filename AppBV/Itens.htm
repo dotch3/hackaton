@@ -176,8 +176,8 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-1"></div>
-							<div class="col-xs-10"><a href="CadastroItem.htm"></a><img src="images/menu_bottom.png"
-									width="268" height="50" /></div>
+							<div class="col-xs-10"><a href="CadastroItem.htm"><img src="images/menu_bottom.png"
+										width="268" height="50" /></a></div>
 							<div class="col-xs-3"></div>
 						</div>
 					</div>
@@ -254,7 +254,7 @@
 					$('a[aria-expanded=true]').attr('aria-expanded', 'false');
 				});
 
-				runWS('http://localhost:8080/items/findAll', function (text) {
+				runWS('http://54.163.66.128:8080/items/findAll', function (text) {
 					var data = JSON.parse(text);
 					popularItens(data);
 				});
