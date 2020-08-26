@@ -254,7 +254,7 @@
 					$('a[aria-expanded=true]').attr('aria-expanded', 'false');
 				});
 
-				runWS('http://54.163.66.128:8080/items/findAll', function (text) {
+				runWS('http://localhost:8080/items/findAll', function (text) {
 					var data = JSON.parse(text);
 					popularItens(data);
 				});
