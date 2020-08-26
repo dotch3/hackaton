@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 /users-java/mvnw
 /users-java/*.cmd
 /users-java/.mvn
 /cad-users-java/.mvn
 /cad-users-java/mvnw
 /cad-users-java/*.cmd
+=======
+
+items/target/
+
+items/bin/
+>>>>>>> 0f216d5ddfcf2b1ec2c813530ae138693f2faa1b

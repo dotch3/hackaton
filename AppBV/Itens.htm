@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>APP Boa Vizinhança</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Normalize.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous">
+
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/style01.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+	<div class="wrapper">
+		<!-- Sidebar  -->
+		<nav id="sidebar">
+			<div id="dismiss">XX
+				<i class="fas fa-times-circle"></i>
+			</div>
+
+			<div class="sidebar-header">
+				<h5>Menu</h5>
+				<br />
+				<img src="images/profile.png" width="94" height="94" alt="Perfil" />
+			</div>
+			<ul class="list-unstyled components">
+				<li class="active">
+					<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Minhas publicações</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu">
+						<li>
+							<a href="#">Item 1</a>
+						</li>
+						<li>
+							<a href="#">Item 2</a>
+						</li>
+						<li>
+							<a href="#">Item 3</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Publicações salvas</a>
+				</li>
+				<li>
+					<a href="#">Configurações</a>
+				</li>
+				<li>
+					<a href="#">Central de ajuda</a>
+				</li>
+			</ul>
+			<ul class="list-unstyled">
+				<li>
+					<a href="Default.htm">Sair</a>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Page Content  -->
+		<div id="content" class="container-fluid">
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-6">
+							<button id="sidebarCollapse" class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<i class="fas fa-align-justify" style="font-size: 20px;"></i>
+							</button>
+							Boa Vizinhança
+						</div>
+						<div class="col-xs-4">
+							<!-- Search form -->
+							<form class="form-inline d-flex justify-content-center md-form form-sm">
+							  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Pesquisar" style="margin-top: 5px; width: 120px; height: 25px" aria-label="Search"/>
+							</form>
+						</div>
+						<div class="col-xs-2">
+							<button id="sidebarCollapse" class="btn btn-dark d-inline-block d-lg-none ml-auto" data-toggle="modal" data-target=".modal-pesquisa" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<i class="fas fa-search" style="font-size: 20px;"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<div class="container-fluid">
+				<p>&nbsp;</p>
+				<div class="row">
+					<div class="col-xs-1"></div>
+					<div class="col-xs-10"><h5>Você precisa de algum dos itens abaixo?</h5></div>
+					<div class="col-xs-3"></div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3"><a href="Itens.htm"><img src="images/menu_top01.png" width="75" height="51" alt="Você precisa de algum dos itens abaixo?" /></a></div>
+					<div class="col-xs-3"><img src="images/menu_top02.png" width="75" height="51" alt="Você pode emprestar algum dos itens abaixo?" /></div>
+					<div class="col-xs-3"><img src="images/menu_top03.png" width="75" height="51" alt="Você precisa de algum dos serviços abaixo?" /></div>
+					<div class="col-xs-3"><img src="images/menu_top04.png" width="75" height="51" alt="Você pode oferecer algum dos serviços abaixo?" /></div>
+				</div>
+			</div>
+
+			<br/>
+			<div id="divListItens">
+				<div id="divItem" class="container-fluid">
+					<div id="publicacoes" class="row">
+						<div class="col-xs-1"><a href="#" class="pub_urlDetalheItem1"><span class="pub_imagem"><i class="fas fa-image" style="font-size: 50px"></i></span></a></div>
+						<div class="col-xs-1"></div>
+						<div class="col-xs-10">
+							<a href="#" class="pub_urlDetalheItem2"><span class="pub_titulo">[titulo]</span></a><br />
+							<a href="#" class="pub_urlDetalheItem3"><span class="pub_descricao">[descricao]</span></a><br />
+							<span class="pub_data">[data_pub]</span>
+							<br />
+
+							<div class="row">
+								<div class="col-xs-4"><i class="fas fa-star" style="font-size: 25px; color: yellow"></i> <span class="pub_reputacao">[0.0]</span></div>
+								<div class="col-xs-3"><a href="#" data-toggle="modal" data-target=".bd-salvar-modal-sm"><i class="fas fa-heart" style="font-size: 25px; color: red"></i></a></div>
+								<div class="col-xs-5"><span class="pub_valor">[000]</span></div>
+							</div>
+						</div>
+
+					</div>
+					<hr>
+				</div>
+			</div>
+			<p>&nbsp;</p>
+
+			<div class="navbar navbar-default navbar-fixed-bottom">
+				<div class="container">
+					<p class="navbar-text pull-left">
+
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-1"></div>
+							<div class="col-xs-10"><img src="images/menu_bottom.png" width="268" height="50" /></div>
+							<div class="col-xs-3"></div>
+						</div>
+					</div>
+
+				  </p>
+				</div>
+			</div>
+
+	</div>
+
+	<div class="overlay"></div>
+
+	<!-- Small modal -->
+	<div class="modal fade bd-salvar-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+		<div class="modal-content">
+		  A publicação foi salva para ver depois.
+		</div>
+	  </div>
+	</div>
+
+	<div class="modal fade modal-pesquisa" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+		<div class="modal-content">
+		  Ao clicar conecta com a API Java de pesquisa
+		</div>
+	  </div>
+	</div>
+
+	<div class="modal fade modal-detalhe" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+		<div class="modal-content">
+		  Ao clicar ir para o detalhe do item, conectar com a API Java que retorna os detalhes do item.
+		</div>
+	  </div>
+	</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed --> crossorigin="anonymous"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+	<!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- JS functions -->
+	<script src="js/scripts.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        	checkCookie();
+
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+
+            runWS('http://localhost:8080/items/findAll', function(text){
+			    var data = JSON.parse(text);
+			    popularItens(data);
+			});
+        });
+    </script>
+
+  </body>
+</html>

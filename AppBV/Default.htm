@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>APP Boa Vizinhança</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Normalize.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style01.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+	<div class="container-fluid">
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<div class="row">
+			<div class="col-xs-1"></div>
+			<div class="col-xs-3"><img src="images/bv_logo.png" width="80" height="48" alt="Boa Vizinhança" /></div>
+			<div class="col-xs-7">
+				<h4>
+					<p class="appTitulo text-center">Boa Vizinhança</p>
+				</h4>
+			</div>
+			<div class="col-xs-1"></div>
+		</div>
+
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+
+		<div class="row">
+		  <div class="col-xs-1"></div>
+		  <div class="col-xs-10">
+		  	<form>
+				<div class="form-group">
+					<label for="txtEmail" style="color: #48DCE2">E-MAIL</label>
+					<input type="email" class="form-control" id="txtEmail" value="usuario@email.com.br">
+				</div>
+				<div class="form-group">
+					<label for="txtSenha" style="color: #48DCE2">SENHA</label>
+					<input type="password" class="form-control" id="txtSenha" placeholder="**********">
+				</div>
+				<div class="row">
+					<div class="col text-center">
+						<a href="#" id="loginUsuario" class="btn btn-warning btn-entrar">ENTRAR</a>
+					</div>
+				</div>
+
+				<p>&nbsp;</p>
+
+				<hr/>
+				<p class="text-center" style="color: #48DCE2">ou conectar com</p>
+				<div class="row">
+					<div class="col text-center">
+						<a href="#" class="btn btn-primary btn-facebook">FACEBOOK</a>
+					</div>
+				</div>
+			</form>
+		  </div>
+		  <div class="col-xs-1"></div>
+		</div>
+
+		<p>&nbsp;</p>
+
+		<p class="text-success text-center">Esqueceu seus dados de login?<br /><a href="#">Obtenha ajuda para entrar.</a></p>
+
+		<a href="#"><p class="bg-success text-center" style="padding-top: 15px; height: 50px;">Não tem uma conta? Cadastre-se</p></a>
+	</div>
+
+	<!-- Small modal -->
+	<div class="modal fade modal-login-invalido" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+		<div class="modal-content">
+		  E-mail e/ou senha inválido. Por favor, tente novamente.
+		</div>
+	  </div>
+	</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+	<!-- JS functions -->
+	<script src="js/scripts.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        	setCookie("appBV", '', -10);
+        });
+    </script>
+
+  </body>
+</html>
