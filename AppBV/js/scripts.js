@@ -12,7 +12,7 @@ function runWS(requestURL, callback) {
 			callback(rawFile.responseText);
 		}
 		else {
-			console.log("fail runWS", rawFile.status)
+			console.log("fail runWS:", " status:", rawFile.status, " state:", rawFile.readyState)
 		}
 	}
 	rawFile.send();
