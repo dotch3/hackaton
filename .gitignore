@@ -44,3 +44,5 @@ build/
 /cad-users-java/mvnw
 /cad-users-java/*.cmd
 
+
+items/bin/
