@@ -130,8 +130,9 @@ function checkCookie() {
 	var cnome = getCookie("appBV");
 	if (cnome != "") {
 		return cnome;
-	} else {
+	} else if (sessionStorage.getItem("idUser") !== undefined) {
 		window.location.href = "Default.htm";
+		console.log('check your Cookie configuration')
 	}
 }
 
