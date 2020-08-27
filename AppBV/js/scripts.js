@@ -104,6 +104,7 @@ function tipoMoeda(tipo, valor) {
     Cookie functions
 */
 function setCookie(cnome, cvalor, exdias) {
+	console.log("setting cookie");
 	var d = new Date();
 	d.setTime(d.getTime() + (exdias * 24 * 60 * 60 * 1000));
 	var expires = "expires=" + d.toGMTString();
@@ -111,6 +112,7 @@ function setCookie(cnome, cvalor, exdias) {
 }
 
 function getCookie(cnome) {
+	console.log("getting cookie");
 	var name = cnome + "=";
 	var ca = document.cookie.split(';');
 	for (var i = 0; i < ca.length; i++) {
@@ -124,6 +126,7 @@ function getCookie(cnome) {
 }
 
 function checkCookie() {
+	console.log("checking cookie");
 	var cnome = getCookie("appBV");
 	if (cnome != "") {
 		return cnome;
@@ -184,6 +187,7 @@ function sendCredentials(email, senha) {
 			if (response.data["idUser"] !== undefined) {
 				console.log('login succeed!, setting cookies');
 				setCookie("appBV", email, 1);
+				window.cookie = "appBV", email;
 
 				//Saving the idUser in the sessionStorage
 				window.sessionStorage.setItem('idUser', response.data["idUser"]);
