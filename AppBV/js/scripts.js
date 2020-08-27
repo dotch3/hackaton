@@ -165,14 +165,14 @@ $('#btnPesquisar').on('click', function (event) {
 		$(this).prop("disabled", true).html('<i class="fas fa-spinner" style="font-size: 20px;"></i>');
 		$('.modal-carregando').modal('show');
 
-		var clonedRows = document.querySelectorAll('.clonedrow');
-		for (var i = 0; i < clonedRows.length; i++) {
-			clonedRows[i].parentNode.removeChild(clonedRows[i]);
-		}
-
 		runWS('http://localhost:8080/items/search/' + pesq, function(text){
 			var data = JSON.parse(text);
 			if (data.length > 0) {
+				var clonedRows = document.querySelectorAll('.clonedrow');
+				for (var i = 0; i < clonedRows.length; i++) {
+					clonedRows[i].parentNode.removeChild(clonedRows[i]);
+				}
+
 				popularItens(data);
 
 				$('.modal-carregando').modal('hide');
