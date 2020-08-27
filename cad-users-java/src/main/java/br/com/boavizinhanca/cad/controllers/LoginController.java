@@ -1,8 +1,7 @@
 package br.com.boavizinhanca.cad.controllers;
 
 import br.com.boavizinhanca.cad.dto.UserDTO;
-import br.com.boavizinhanca.cad.responses.StandardResponseAuthenticateCustomer;
-import br.com.boavizinhanca.cad.responses.StandardResponseAuthenticatePartner;
+import br.com.boavizinhanca.cad.responses.StandardResponseAuthenticate;
 import br.com.boavizinhanca.cad.services.LoginService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,17 +31,10 @@ public class LoginController {
     @Autowired
     LoginService service;
 
-    @ApiOperation("Authenticate Customer")
-    @ApiResponse(code = 200, message = "OK", response = StandardResponseAuthenticateCustomer.class)
-    @PostMapping(value = "/authenticate/customer", produces = "application/json")
-    public ResponseEntity<StandardResponseAuthenticateCustomer> authenticateCustomer(@RequestBody UserDTO user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        return service.authenticateCustomer(user);
-    }
-
-    @ApiOperation("Authenticate Partner")
-    @ApiResponse(code = 200, message = "OK", response = StandardResponseAuthenticatePartner.class)
-    @PostMapping(value = "/authenticate/partner", produces = "application/json")
-    public ResponseEntity<StandardResponseAuthenticatePartner> authenticatePartner(@RequestBody UserDTO user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        return service.authenticatePartner(user);
+    @ApiOperation("Authenticate")
+    @ApiResponse(code = 200, message = "OK", response = StandardResponseAuthenticate.class)
+    @PostMapping(value = "/authenticate", produces = "application/json")
+    public ResponseEntity<StandardResponseAuthenticate> authenticatePartner(@RequestBody UserDTO user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        return service.authenticate(user);
     }
 }

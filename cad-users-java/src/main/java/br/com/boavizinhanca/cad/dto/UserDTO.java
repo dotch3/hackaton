@@ -12,10 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserDTO {
 
-    @ApiModelProperty(notes = "Login", required = true, name = "login", example = "matheus0.02.0@icloud.com")
+    @ApiModelProperty(notes = "Login", required = true, name = "login", example = "empresa_contato@empresa.com")
     private String login;
 
-    @ApiModelProperty(notes = "Senha", required = true, name = "id", example = "8D969EEF6ECAD3C29A3A629280E686CF0C3F5D5A86AFF3CA12020C923ADC6C92")
+    @ApiModelProperty(notes = "Senha", required = true, name = "id", example = "3B4402C849EB7467BF9CBE3A779289E31AEAA89ABBE6D711ECDB3C4B538A373F")
     private String password;
 
 }
