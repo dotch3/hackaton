@@ -4,6 +4,7 @@ import br.com.boavizinhanca.cad.dto.UserDTO;
 import br.com.boavizinhanca.cad.entities.Customer;
 import br.com.boavizinhanca.cad.entities.Partner;
 import br.com.boavizinhanca.cad.entities.User;
+import br.com.boavizinhanca.cad.enums.UserTypeEnum;
 import br.com.boavizinhanca.cad.repositories.CustomerRepository;
 import br.com.boavizinhanca.cad.repositories.PartnerRepository;
 import br.com.boavizinhanca.cad.repositories.UserRepository;
@@ -50,9 +51,9 @@ public class LoginService {
                 Optional<Partner> partner = partnerRepository.findByIdUser(user.get().getId());
 
                 if(customer.isPresent())
-                    return ResponseEntity.ok(new StandardResponseAuthenticate(new StandardResponseAuthenticate.AuthenticateResponse(customer.get().getId(), customer.get().getDocument())));
+                    return ResponseEntity.ok(new StandardResponseAuthenticate(new StandardResponseAuthenticate.AuthenticateResponse(customer.get().getDocument(), UserTypeEnum.CUSTOMER)));
                 if(partner.isPresent())
-                    return ResponseEntity.ok(new StandardResponseAuthenticate(new StandardResponseAuthenticate.AuthenticateResponse(partner.get().getId(), partner.get().getDocument())));
+                    return ResponseEntity.ok(new StandardResponseAuthenticate(new StandardResponseAuthenticate.AuthenticateResponse(partner.get().getDocument(), UserTypeEnum.PARTNER)));
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
             logger.error("Credentials aren't equal!");
