@@ -3,14 +3,19 @@
 */
 function runWS(requestURL, callback) {
 	var rawFile = new XMLHttpRequest();
+
 	rawFile.overrideMimeType("application/json");
 	rawFile.open("GET", requestURL, true);
+	rawFile.setRequestHeader("Content-Type", "application/json");
 	rawFile.onreadystatechange = function () {
-		if (rawFile.readyState === 4 && rawFile.status == "200") {
+		if (rawFile.readyState === 4 && rawFile.status == 200) {
 			callback(rawFile.responseText);
 		}
+		else {
+			console.log("fail runWS", rawFile.status)
+		}
 	}
-	rawFile.send(null);
+	rawFile.send();
 }
 
 function popularItens(jsonObj) {
@@ -169,13 +174,16 @@ function sendCredentials(email, senha) {
 			console.log("state 200");
 			response = JSON.parse(this.responseText);
 			console.log('Validado com sucesso:', response);
-			if (response.data !== undefined) {
+			if (response.data["idUser"] !== undefined) {
 				console.log('login succeed!, setting cookies');
 				setCookie("appBV", email, 1);
 
 				//Saving the idUser in the sessionStorage
-				window.sessionStorage.setItem('idUser', response.data);
+				window.sessionStorage.setItem('idUser', response.data["idUser"]);
 				window.location.href = "Itens.htm";
+			}
+			else {
+				console.log("response data issue");
 			}
 		}
 		else {
