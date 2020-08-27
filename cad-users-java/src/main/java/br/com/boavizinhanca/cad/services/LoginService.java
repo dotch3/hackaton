@@ -51,9 +51,9 @@ public class LoginService {
                 Optional<Partner> partner = partnerRepository.findByIdUser(user.get().getId());
 
                 if(customer.isPresent())
-                    return ResponseEntity.ok(new StandardResponseAuthenticate(new StandardResponseAuthenticate.AuthenticateResponse(customer.get().getDocument(), UserTypeEnum.CUSTOMER)));
+                    return ResponseEntity.ok(new StandardResponseAuthenticate(new StandardResponseAuthenticate.AuthenticateResponse(user.get().getId(), customer.get().getDocument(), UserTypeEnum.CUSTOMER)));
                 if(partner.isPresent())
-                    return ResponseEntity.ok(new StandardResponseAuthenticate(new StandardResponseAuthenticate.AuthenticateResponse(partner.get().getDocument(), UserTypeEnum.PARTNER)));
+                    return ResponseEntity.ok(new StandardResponseAuthenticate(new StandardResponseAuthenticate.AuthenticateResponse(user.get().getId(), partner.get().getDocument(), UserTypeEnum.PARTNER)));
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
             logger.error("Credentials aren't equal!");
