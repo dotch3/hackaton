@@ -149,7 +149,8 @@ function sendCredentials(email, senha) {
 
 	// Creating a XHR object
 	let xhr = new XMLHttpRequest();
-	let url = "http://54.163.66.128:8081/api/v1/authenticate";
+	//let url = "http://54.163.66.128:8081/api/v1/authenticate"; //Rodando no AWS
+	let url = "http://localhost:8081/api/v1/authenticate" //Rodando no local
 	// http://54.163.66.128:8080 AWS
 	var response = '';
 
@@ -242,6 +243,7 @@ $('#btnPesquisar').on('click', function (event) {
 		$('.modal-pesquisar-invalido').modal('show');
 	}
 });
+
 
 
 /*

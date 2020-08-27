@@ -20,6 +20,7 @@ import java.security.NoSuchAlgorithmException;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+
 @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081"},maxAge=4800, allowCredentials="false")
 @RestController()
 @Api(value = "Login API",tags = { "Login" })
@@ -34,6 +35,8 @@ public class LoginController {
 
     @Autowired
     LoginService service;
+
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081"},maxAge=4800, allowCredentials="false")
 
     @ApiOperation("Authenticate")
     @ApiResponse(code = 200, message = "OK", response = StandardResponseAuthenticate.class)
