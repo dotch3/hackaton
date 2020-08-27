@@ -5,7 +5,14 @@ function runWS(requestURL, callback) {
 	var rawFile = new XMLHttpRequest();
 
 	rawFile.overrideMimeType("application/json");
-	rawFile.open("GET", requestURL, true);
+	if (requestURL.includes("findAll")) {
+		console.log("findAll...")
+		rawFile.open("GET", requestURL, false);
+	}
+	else {
+		rawFile.open("GET", requestURL, true);
+	}
+
 	rawFile.setRequestHeader("Content-Type", "application/json");
 	rawFile.onreadystatechange = function () {
 		if (rawFile.readyState === 4 && rawFile.status == 200) {

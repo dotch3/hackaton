@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.startupone.boavizinhanca.items.entity.Item;
 import com.startupone.boavizinhanca.items.service.ItemService;
 
-@CrossOrigin(maxAge = 3600) 
+
 @RestController
 @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8888","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
 @RequestMapping("/items") 
