@@ -1,5 +1,6 @@
 package br.com.boavizinhanca.cad.responses;
 
+import br.com.boavizinhanca.cad.entities.Partner;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class StandardResponseAuthenticate {
-    private int data;
+public class StandardResponseAuthenticatePartner {
+    private Partner data;
 }

@@ -16,6 +16,9 @@ public interface PartnerRepository extends JpaRepository<Partner, Integer> {
     @Query(value = "SELECT * FROM dbboavizinhanca.tb_partner WHERE nr_documento = :document", nativeQuery = true)
     Optional<Partner> findByDocument(@Param("document") String document);
 
+    @Query(value = "SELECT * FROM dbboavizinhanca.tb_partner WHERE id_user = :idUser", nativeQuery = true)
+    Optional<Partner> findByIdUser(@Param("idUser") int idUser);
+
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM dbboavizinhanca.tb_partner WHERE nr_documento = :document", nativeQuery = true)

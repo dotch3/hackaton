@@ -14,7 +14,10 @@ import java.util.Optional;
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     @Query(value = "SELECT * FROM dbboavizinhanca.tb_customer WHERE nr_documento = :document", nativeQuery = true)
-    Optional<Customer> findByDocument(String document);
+    Optional<Customer> findByDocument(@Param("document") String document);
+
+    @Query(value = "SELECT * FROM dbboavizinhanca.tb_customer WHERE id_user = :idUser", nativeQuery = true)
+    Optional<Customer> findByIdUser(@Param("idUser") int idUser);
 
     @Transactional
     @Modifying
