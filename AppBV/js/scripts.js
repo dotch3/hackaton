@@ -149,8 +149,8 @@ function sendCredentials(email, senha) {
 
 	// Creating a XHR object
 	let xhr = new XMLHttpRequest();
-	//let url = "http://54.163.66.128:8081/api/v1/authenticate"; //Rodando no AWS
-	let url = "http://localhost:8081/api/v1/authenticate" //Rodando no local
+	let url = "http://54.163.66.128:8081/api/v1/authenticate"; //Rodando no AWS
+	//let url = "http://localhost:8081/api/v1/authenticate" //Rodando no local
 	// http://54.163.66.128:8080 AWS
 	var response = '';
 
@@ -162,9 +162,11 @@ function sendCredentials(email, senha) {
 
 	// Create a state change callback
 	xhr.onreadystatechange = function () {
+		console.log("state changed");
 		if (xhr.readyState === 4 && xhr.status === 200) {
 
 			// Print received data from server 
+			console.log("state 200");
 			response = JSON.parse(this.responseText);
 			console.log('Validado com sucesso:', response);
 			if (response.data !== undefined) {
@@ -210,16 +212,12 @@ $('#btnPesquisar').on('click', function (event) {
 		$(this).prop("disabled", true).html('<i class="fas fa-spinner" style="font-size: 20px;"></i>');
 		$('.modal-carregando').modal('show');
 
-<<<<<<< HEAD
-		runWS('http://localhost:8080/items/search/' + pesq, function(text){
-=======
 		var clonedRows = document.querySelectorAll('.clonedrow');
 		for (var i = 0; i < clonedRows.length; i++) {
 			clonedRows[i].parentNode.removeChild(clonedRows[i]);
 		}
 
-		runWS('http://localhost:8080/items/search/' + pesq, function (text) {
->>>>>>> 36b856c8f73876739e65c5547f338dcb4e342d3b
+		runWS('http://54.163.66.128:8080/items/search/' + pesq, function (text) {
 			var data = JSON.parse(text);
 			if (data.length > 0) {
 				var clonedRows = document.querySelectorAll('.clonedrow');
@@ -268,7 +266,7 @@ function pagItens() {
 
 	$('.modal-carregando').modal('show');
 
-	runWS('http://localhost:8080/items/findAll', function (text) {
+	runWS('http://54.163.66.128:8080/items/findAll', function (text) {
 		var data = JSON.parse(text);
 		if (data !== undefined) {
 			popularItens(data);
@@ -303,7 +301,7 @@ function pagDetalhe() {
 	if (urlParams.has("id") === true) {
 		idItem = urlParams.get("id");
 
-		runWS('http://localhost:8080/items/findItem/' + idItem, function (text) {
+		runWS('http://54.163.66.128:8080/items/findItem/' + idItem, function (text) {
 			var data = JSON.parse(text);
 
 			if (data !== undefined) {
