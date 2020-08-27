@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.*;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
+//CORS
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888"},maxAge=4800, allowCredentials="false")
 @RestController()
 @Api(value = "Login API",tags = { "Login" })
 @RequestMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
