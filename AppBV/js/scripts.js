@@ -53,8 +53,7 @@ function detalheItem(jsonObj, idItem) {
 			document.getElementsByClassName("pub_descricao")[numItem].innerHTML = jsonObj.descricao;
 			document.getElementsByClassName("pub_data")[numItem].innerHTML = jsonObj.dataPublicacao;
 		}
-		else
-		{
+		else {
 			$('.modal-carregando').modal('hide');
 			$('.modal-detalhe-semregistros').modal('show');
 		}
@@ -150,7 +149,8 @@ function sendCredentials(email, senha) {
 
 	// Creating a XHR object
 	let xhr = new XMLHttpRequest();
-	let url = "http://localhost:8081/api/v1/authenticate";
+	let url = "http://54.163.66.128:8081/api/v1/authenticate";
+	// http://54.163.66.128:8080 AWS
 	var response = '';
 
 	// open a connection
@@ -214,15 +214,14 @@ $('#btnPesquisar').on('click', function (event) {
 			clonedRows[i].parentNode.removeChild(clonedRows[i]);
 		}
 
-		runWS('http://localhost:8080/items/search/' + pesq, function(text){
+		runWS('http://localhost:8080/items/search/' + pesq, function (text) {
 			var data = JSON.parse(text);
 			if (data.length > 0) {
 				popularItens(data);
 
 				$('.modal-carregando').modal('hide');
 			}
-			else
-			{
+			else {
 				$('.modal-carregando').modal('hide');
 				$('.modal-pesquisar-semregistros').modal('show');
 			}
@@ -230,8 +229,7 @@ $('#btnPesquisar').on('click', function (event) {
 			$('#btnPesquisar').prop("disabled", false).html('<i class="fas fa-search" style="font-size: 20px;"></i>');
 		});
 	}
-	else
-	{
+	else {
 		$('.modal-pesquisar-invalido').modal('show');
 	}
 });
@@ -259,7 +257,7 @@ function pagItens() {
 
 	$('.modal-carregando').modal('show');
 
-	runWS('http://localhost:8080/items/findAll', function(text){
+	runWS('http://localhost:8080/items/findAll', function (text) {
 		var data = JSON.parse(text);
 		if (data !== undefined) {
 			popularItens(data);
@@ -291,11 +289,10 @@ function pagDetalhe() {
 	var urlParams = new URLSearchParams(window.location.search);
 	var idItem = 0;
 
-	if (urlParams.has("id") === true)
-	{
+	if (urlParams.has("id") === true) {
 		idItem = urlParams.get("id");
 
-		runWS('http://localhost:8080/items/findItem/' + idItem, function(text){
+		runWS('http://localhost:8080/items/findItem/' + idItem, function (text) {
 			var data = JSON.parse(text);
 
 			if (data !== undefined) {
@@ -303,15 +300,13 @@ function pagDetalhe() {
 
 				$('.modal-carregando').modal('hide');
 			}
-			else
-			{
+			else {
 				$('.modal-carregando').modal('hide');
 				$('.modal-detalhe-semregistros').modal('show');
 			}
 		});
 	}
-	else
-	{
+	else {
 		$('.modal-carregando').modal('hide');
 		$('.modal-detalhe-semregistros').modal('show');
 	}
