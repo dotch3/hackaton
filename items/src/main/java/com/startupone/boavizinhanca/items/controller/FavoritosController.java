@@ -23,25 +23,25 @@ public class FavoritosController {
 	@Autowired
 	private FavoritoService service;
 	
-	@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8888"},maxAge=4800, allowCredentials="false")
+	@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8888","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
 	@GetMapping("/todos")
 	public List<Favorito> findAllItems(){
 		return service.getFavoritos();
 	}
 	
-	@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8888"},maxAge=4800, allowCredentials="false")
+	@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8888","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
 	@GetMapping("/porUsuario/{id}")
 	public List<Favorito> findByIdUser(@PathVariable int id){
 		return service.getFavoritosByUser(id);
 	}
 	
-	@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8888"},maxAge=4800, allowCredentials="false")
+	@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8888","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
 	@PostMapping("/favoritar")
 	public Favorito favoritar(@RequestBody Favorito favorito) {
 		return service.adicionar(favorito);
 	}
 	
-	@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8888"},maxAge=4800, allowCredentials="false")
+	@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8888","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
 	@DeleteMapping("/remover")
 	public String removerFavorito(@RequestBody Favorito favorito) {
 		return service.remover(favorito);
