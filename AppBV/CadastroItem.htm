@@ -259,6 +259,14 @@
                                 <!-- <label for="userId"> User 1 (test)</label> -->
                                 <input type="text" class="form-control" name="idUserProprietario"
                                     id="idUserProprietario" placeholder="" value="1" />
+                                <script>
+                                    //Getting info from the sessionStorage
+                                    if (sessionStorage.getItem("idUser") !== undefined) {
+                                        console.log("getting info of the user logged in")
+                                        document.getElementById("idUserProprietario").value = sessionStorage.getItem("idUser");
+                                    }
+
+                                </script>
                                 <!-- Tags -->
                                 <!-- <input type="text" class="form-control" name="tags" id="tags" value="" /> -->
                             </div>
