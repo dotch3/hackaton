@@ -69,7 +69,8 @@ function detalheItem(jsonObj, idItem) {
 			// Link User
 			var urlDetalheUser = 'DetalheUser.htm?id=' + jsonObj.idUserProprietario;
 			document.getElementsByClassName("pub_urlUserId")[numItem].href = urlDetalheUser;
-			document.getElementById("pub_valor").value = jsonObj.valor;
+			document.getElementById("idUser").value = jsonObj.idUserProprietario;
+			document.getElementById("valor").value = jsonObj.valor;
 
 		}
 		else {
@@ -332,7 +333,16 @@ function pagDetalhe() {
 			var data = JSON.parse(text);
 
 			if (data !== undefined) {
+				console.log('data item found:', idItem);
 				detalheItem(data, idItem);
+
+				//Setting the session and cookie with the itemId
+				setCookie("idItem", idItem, 1);
+				//Saving the idUser in the sessionStorage
+				window.sessionStorage.setItem('idItem', idItem);
+				window.sessionStorage.setItem('idUser', data["idUserProprietario"]);
+
+
 
 				$('.modal-carregando').modal('hide');
 			}

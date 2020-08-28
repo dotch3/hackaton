@@ -171,7 +171,7 @@
 					<hr>
 				</div>
 			</div>
-			<form action="JavaScript:sendJsonData()" enctype="multipart/form-data" class="container">
+			<form action="JavaScript:sendPropostaJson()" class="container">
 				<div class="row">
 					<div class="col-xs-1"></div>
 					<div class="col-xs-10">
@@ -180,29 +180,34 @@
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fas fa-dollar-sign"
 										style="font-size: 15px;"></i></span>
-								<input type="text" class="form-control pub_valor" id="pub_valor" name="pub_valor"
-									value="">
+								<input type="text" class="form-control pub_valor" id="valor" name="valor" value="">
 							</div>
 						</div>
 					</div>
 					<div class="col-xs-1"></div>
 
 				</div>
+
 				<div class="row container-fluid">
 					<!-- <p>&nbsp;</p> -->
+					<div class="row container-fluid" style=" display: none;">
+						<input type="text" name="idUser" id="idUser" value="">
+						<input type="text" name="idItem" id="idItem" value="">
+						<!-- style=" display: none;" -->
+					</div>
 					</br>
 					<div class="row">
 						<div class="col-xs-1"></div>
 						<div class="col-xs-5 form-group">
 							<label for="dataSugestaoEmprestimo">INICIO EMPRESTIMO: </label>
 							<br>
-							<input class="bv" id="dataInicio" name="dataEmprestimo" type="date" />
+							<input class="bv" id="dataInicio" name="dataInicio" type="date" required />
 						</div>
 
 						<div class="col-xs-5 form-group ">
 							<label for="dataSugestaoDevolucao">FIM EMPRESTIMO: </label>
 							<br>
-							<input class="bv" id="dataFim" name="dataEmprestimo" type="date" />
+							<input class="bv" id="dataFim" name="dataFim" type="date" required />
 						</div>
 						<div class="col-xs-1"></div>
 					</div>
@@ -211,17 +216,19 @@
 				<br />
 				<p>&nbsp;</p>
 
-				<div class="row">
-					<div class="col text-center">
-						<!-- <a href="#" class="btn btn-warning btn-padrao" data-toggle="modal"
-							data-target=".modal-proposta">FAZER PROPOSTA</a> -->
+				<div class="row " style="text-align: center;" ;>
+					<!-- <div class="col text-center">
 						<a href="#" type="submit" class="btn btn-warning btn-padrao">FAZER PROPOSTA</a>
-					</div>
+					</div> -->
+					<button type="submit" class="btn btn-outline-secondary btn-padrao" style="background: #ec971f !important;  color: white !important;  
+					                                        font-weight: 400 !important; border-color: #fea556;
+					                                        margin-bottom: 1rem; font-size: 1.25rem;width: 180px;
+					                                        border-radius: 20px;">FAZER PROPOSTA</button>
 				</div>
 			</form>
 			<!-- End FORM -->
 			<br />
-			<div class="row">
+			<div class="row " style="text-align: center;">
 				<div class="col text-center">
 					<a href="Itens.htm" class="btn btn-warning btn-padrao">VOLTAR PARA LISTA</a>
 				</div>
@@ -274,11 +281,19 @@
 			</div>
 		</div>
 
-		<div class="modal fade modal-proposta" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+		<div class="modal fade modal-proposta-enviada" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
-					Ao clicar conecta com a API Java que salva no banco de dados o item com a proposta.
+					Proposta enviada. Aguardando avaliação.
+				</div>
+			</div>
+		</div>
+		<div class="modal fade modal-proposta-invalido" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					Proposta inválida. Verifique os dados.
 				</div>
 			</div>
 		</div>
@@ -311,8 +326,9 @@
 		<script type="text/javascript">
 			$(document).ready(function () {
 				checkCookie();
-
 				pagDetalhe();
+				// storeUserDataInSession("",);
+
 			});
 		</script>
 		<!-- Proposta-->
@@ -344,55 +360,67 @@
 
 		<script>
 			// Sending the data
-			function sendJsonData() {
-				var jData = JSON.stringify($('form').serializeObject());
-				console.log('JSON', jData);
-				// Creating a XHR object
-				let xhr = new XMLHttpRequest();
-				let url = "http://54.163.66.128:8080/items/publish";
-				var response = '';
+			function getIdItem() {
+				if (sessionStorage.getItem("idItem") !== undefined) {
+					idItem = sessionStorage.getItem("idItem");
+					console.log("idItem:", idItem)
+					document.getElementById("idItem").value = idItem;
+					return idItem;
+				}
+				else {
+					return false;
+				}
+			}
+			function sendPropostaJson() {
+				console.log("ENVIANDO JSON");
+				var idItem = getIdItem();
 
-				// open a connection
-				xhr.open("POST", url, true);
+				if (idItem) {
+					var jData = JSON.stringify($('form').serializeObject());
+					console.log('JSON', jData);
 
-				// Set the request header i.e. which type of content you are sending
-				xhr.setRequestHeader("Content-Type", "application/json");
+					// Creating a XHR object
+					let xhr = new XMLHttpRequest();
+					let url = "http://54.163.66.128:8082/emprestimos/enviarProposta";
+					var response = '';
 
-				// Create a state change callback
-				xhr.onreadystatechange = function () {
-					if (xhr.readyState === 4 && xhr.status === 200) {
+					// open a connection
+					xhr.open("POST", url, true);
 
-						// Print received data from server 
-						result = document.getElementById("result");
-						response = JSON.parse(this.responseText);
-						console.log('Response:', response["idItem"]);
-						result.innerHTML = "Item criado com sucesso!" + response["idItem"] + " - " + response["nome"];
+					// Set the request header i.e. which type of content you are sending
+					xhr.setRequestHeader("Content-Type", "application/json");
 
-						//Redirect to Publish page
-						sendToPublish(jData, response["idItem"]);
-
+					// Create a state change callback
+					xhr.onreadystatechange = function () {
+						if (xhr.readyState === 4 && xhr.status === 200) {
 
 
-					}
-					else if (xhr.status === 400) {
-						result = document.getElementById("result");
-						response = JSON.parse(this.responseText);
-						result.innerHTML = "parece que esqueci alguma coisa.  -_-' <br>" + response["error"] + " - Status: " + response["status"];
 
-						console.log('Response:', response["idItem"]);
-					}
+							//Redirect to Publish page
+							response = JSON.parse(this.responseText);
+							$('.modal-proposta-enviada').modal('show');
+							setTimeout(function () { $('.modal-proposta-enviada').modal('hide'); }, 3000);
 
-					else if (xhr.status === 500) {
-						result = document.getElementById("result");
-						response = JSON.parse(this.responseText);
-						result.innerHTML = " -_-' <br>" + response["error"] + " - Status: " + response["status"];
+							console.log('proposta enviada:', response["status"]);
 
-						console.log('Response:', response["idItem"]);
-					}
-				};
+							// sendToPublish(jData, response["status"]);
 
-				// Sending data with the request 
-				xhr.send(jData);
+						}
+
+						else if (xhr.status === 500) {
+
+							$('.modal-proposta-invalido').modal('show');
+
+
+							console.log('proposta invalida:', response["error"]);
+						}
+					};
+
+					// Sending data with the request 
+					xhr.send(jData);
+				}
+
+
 
 			}
 
