@@ -314,8 +314,10 @@
 
 		<script type="text/javascript">
 			$(document).ready(function () {
-				getSession('appBV');
+				checkCookie();
 				pagDetalhe();
+				// storeUserDataInSession("",);
+
 			});
 		</script>
 		<!-- Proposta-->

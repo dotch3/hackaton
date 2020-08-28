@@ -89,22 +89,6 @@
 	</div>
 
 	<!-- Small modal -->
-	<div class="modal fade modal-carregando tabindex=" -1" role="dialog" aria-labelledby="mySmallModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="row">
-					<div class="col-xs-4">
-						<div class="loader"></div>
-					</div>
-					<div class="col-xs-8">
-						<br />Por favor, aguarde...
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<div class="modal fade modal-login-invalido" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog modal-sm">
@@ -126,11 +110,7 @@
 	<!-- JS functions -->
 	<script src="js/scripts.js"></script>
 
-	<script type="text/javascript">
-		$(document).ready(function () {
-			setSession('appBV', 0, 0)
-		});
-	</script>
+	
 
 </body>
 

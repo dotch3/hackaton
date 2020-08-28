@@ -270,7 +270,7 @@
 
             <script>
                 $(document).ready(function () {
-                    getSession('appBV');
+                    checkCookie();
                     getItemId();
 
                     $("#sidebar").mCustomScrollbar({

@@ -29,7 +29,6 @@
 		crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="css/style01.css">
-	<link rel="stylesheet" href="css/styleDetalhe.css">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +43,7 @@
 	<div class="wrapper">
 		<!-- Sidebar  -->
 		<nav id="sidebar">
-			<div id="dismiss">
+			<div id="dismiss">XX
 				<i class="fas fa-times-circle"></i>
 			</div>
 
@@ -54,17 +53,28 @@
 				<img src="images/profile.png" width="94" height="94" alt="Perfil" />
 			</div>
 			<ul class="list-unstyled components">
-				<li>
-					<a href="MinhasPub.htm">Minhas Publicações</a>
+				<li class="active">
+					<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Minhas publicações</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu">
+						<li>
+							<a href="#">Item 1</a>
+						</li>
+						<li>
+							<a href="#">Item 2</a>
+						</li>
+						<li>
+							<a href="#">Item 3</a>
+						</li>
+					</ul>
 				</li>
 				<li>
-					<a href="#">Publicações Salvas</a>
+					<a href="#">Publicações salvas</a>
 				</li>
 				<li>
 					<a href="#">Configurações</a>
 				</li>
 				<li>
-					<a href="#">Central de Ajuda</a>
+					<a href="#">Central de ajuda</a>
 				</li>
 			</ul>
 			<ul class="list-unstyled">
@@ -98,10 +108,10 @@
 							</form>
 						</div>
 						<div class="col-xs-2">
-							<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button"
-								data-toggle="collapse" data-target="#navbarSupportedContent"
-								aria-controls="navbarSupportedContent" aria-expanded="false"
-								aria-label="Toggle navigation">
+							<button id="btnPesquisar" class="btn btn-dark d-inline-block d-lg-none ml-auto"
+								type="button" data-loading-text="Pesquisando..." data-toggle="collapse"
+								data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+								aria-expanded="false" aria-label="Toggle navigation">
 								<i class="fas fa-search" style="font-size: 20px;"></i>
 							</button>
 						</div>
@@ -129,99 +139,35 @@
 				</div>
 			</div>
 
-			<p>&nbsp;</p>
-			<div id="divDetalheItem">
+			<br />
+			<div id="divListItens">
 				<div id="divItem" class="container-fluid">
 					<div id="publicacoes" class="row">
-						<div class="col-xs-1">
-							<div class="detalhe-imagem">
-								<span class="pub_imagem"><i class="fas fa-image" style="font-size: 50px"></i></span><br>
-								<span class="pub_data detalhe-data "><i class="fas fa-image"
-										style="font-size: 50px"></i></span><br>
-							</div>
-
-						</div>
+						<div class="col-xs-1"><a href="#" class="pub_urlDetalheItem1"><span class="pub_imagem"><i
+										class="fas fa-image" style="font-size: 50px"></i></span></a></div>
 						<div class="col-xs-1"></div>
 						<div class="col-xs-10">
-							<span class="pub_titulo">[titulo]</span><br />
-							<span class="pub_descricao">[descricao]</span><br />
-							<p><b>*</b><span class="pub_observacao"
-									style="text-decoration: underline;">[observacao]</span></p><span
-								class="pub_tags detalhe-tags badge badge-pill badge-info">
-								[tags]</span><br />
+							<a href="#" class="pub_urlDetalheItem2"><span class="pub_titulo">[titulo]</span></a><br />
+							<a href="#" class="pub_urlDetalheItem3"><span
+									class="pub_descricao">[descricao]</span></a><br />
+							<span class="pub_data">[data_pub]</span>
+							<br />
 
-							<a href="#" class="pub_urlUserId">
-								<p class="detalhe-user"><i class="fas fa-user"></i><b>&nbsp; Proprietario</b></p>
-							</a>
+							<div class="row">
+								<div class="col-xs-4"><i class="fas fa-star" style="font-size: 25px; color: yellow"></i>
+									<span class="pub_reputacao">[0.0]</span></div>
+								<div class="col-xs-3"><a href="#" data-toggle="modal"
+										data-target=".bd-salvar-modal-sm"><i class="fas fa-heart"
+											style="font-size: 25px; color: red"></i></a></div>
+								<div class="col-xs-5"><span class="pub_valor">[000]</span></div>
+							</div>
 						</div>
-
 
 					</div>
 					<hr>
 				</div>
 			</div>
-			<form action="JavaScript:sendPropostaJson()" class="container">
-				<div class="row">
-					<div class="col-xs-1"></div>
-					<div class="col-xs-10">
-						<div class="form-group">
-							<label for="pub_valor" class="lblCampo">PAGO PELO EMPRÉSTIMO</label>
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fas fa-dollar-sign"
-										style="font-size: 15px;"></i></span>
-								<input type="text" class="form-control pub_valor" id="valor" name="valor" value="">
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-1"></div>
-
-				</div>
-
-				<div class="row container-fluid">
-					<!-- <p>&nbsp;</p> -->
-					<div class="row container-fluid" style=" display: none;">
-						<input type="text" name="idUser" id="idUser" value="">
-						<input type="text" name="idItem" id="idItem" value="">
-						<!-- style=" display: none;" -->
-					</div>
-					</br>
-					<div class="row">
-						<div class="col-xs-1"></div>
-						<div class="col-xs-5 form-group">
-							<label for="dataSugestaoEmprestimo">INICIO EMPRESTIMO: </label>
-							<br>
-							<input class="bv" id="dataInicio" name="dataInicio" type="date" required />
-						</div>
-
-						<div class="col-xs-5 form-group ">
-							<label for="dataSugestaoDevolucao">FIM EMPRESTIMO: </label>
-							<br>
-							<input class="bv" id="dataFim" name="dataFim" type="date" required />
-						</div>
-						<div class="col-xs-1"></div>
-					</div>
-				</div>
-
-				<br />
-				<p>&nbsp;</p>
-
-				<div class="row " style="text-align: center;" ;>
-					<!-- <div class="col text-center">
-						<a href="#" type="submit" class="btn btn-warning btn-padrao">FAZER PROPOSTA</a>
-					</div> -->
-					<button type="submit" class="btn btn-outline-secondary btn-padrao" style="background: #ec971f !important;  color: white !important;  
-					                                        font-weight: 400 !important; border-color: #fea556;
-					                                        margin-bottom: 1rem; font-size: 1.25rem;width: 180px;
-					                                        border-radius: 20px;">FAZER PROPOSTA</button>
-				</div>
-			</form>
-			<!-- End FORM -->
-			<br />
-			<div class="row " style="text-align: center;">
-				<div class="col text-center">
-					<a href="Itens.htm" class="btn btn-warning btn-padrao">VOLTAR PARA LISTA</a>
-				</div>
-			</div>
+			<p>&nbsp;</p>
 
 			<div class="navbar navbar-default navbar-fixed-bottom">
 				<div class="container">
@@ -230,8 +176,8 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-1"></div>
-							<div class="col-xs-10"><img src="images/menu_bottom.png" width="268" height="50" />
-							</div>
+							<div class="col-xs-10"><a href="CadastroItem.htm"><img src="images/menu_bottom.png"
+										width="268" height="50" /></a></div>
 							<div class="col-xs-3"></div>
 						</div>
 					</div>
@@ -261,6 +207,15 @@
 			</div>
 		</div>
 
+		<div class="modal fade modal-pesquisar-invalido" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					Digite, no mínimo, 3 caracteres para pesquisar.
+				</div>
+			</div>
+		</div>
+
 		<div class="modal fade modal-pesquisar-semregistros" tabindex="-1" role="dialog"
 			aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
@@ -270,19 +225,11 @@
 			</div>
 		</div>
 
-		<div class="modal fade modal-proposta-enviada" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+		<div class="modal fade bd-salvar-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
-					Proposta enviada. Aguardando avaliação.
-				</div>
-			</div>
-		</div>
-		<div class="modal fade modal-proposta-invalido" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-			aria-hidden="true">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					Proposta inválida. Verifique os dados.
+					A publicação foi salva para ver depois.
 				</div>
 			</div>
 		</div>
@@ -314,116 +261,13 @@
 
 		<script type="text/javascript">
 			$(document).ready(function () {
-				getSession('appBV');
-				pagDetalhe();
+				checkCookie();
+
+				pagItens();
 			});
-		</script>
-		<!-- Proposta-->
-		<!-- Convert to JSON -->
-		<script>
-			// Serializing the data and converting to json format
-			$.fn.serializeObject = function () {
-				var o = {};
-				var a = this.serializeArray();
-				$.each(a, function () {
-					if (o[this.name] !== undefined) {
-						if (!o[this.name].push) {
-							o[this.name] = [o[this.name]];
-						}
-						o[this.name].push(this.value || '');
-					} else {
-						o[this.name] = this.value || '';
-					}
-				});
-				return o;
-			};
-
-		</script>
-		<script>
-			function checkData(a) {
-				console.log(a);
-			}
+			
 		</script>
 
-		<script>
-			// Sending the data
-			function getIdItem() {
-				if (sessionStorage.getItem("idItem") !== undefined) {
-					idItem = sessionStorage.getItem("idItem");
-					console.log("idItem:", idItem)
-					document.getElementById("idItem").value = idItem;
-					return idItem;
-				}
-				else {
-					return false;
-				}
-			}
-			function sendPropostaJson() {
-				console.log("ENVIANDO JSON");
-				var idItem = getIdItem();
-
-				if (idItem) {
-					var jData = JSON.stringify($('form').serializeObject());
-					console.log('JSON', jData);
-
-					// Creating a XHR object
-					let xhr = new XMLHttpRequest();
-					let url = "http://54.163.66.128:8082/emprestimos/enviarProposta";
-					var response = '';
-
-					// open a connection
-					xhr.open("POST", url, true);
-
-					// Set the request header i.e. which type of content you are sending
-					xhr.setRequestHeader("Content-Type", "application/json");
-
-					// Create a state change callback
-					xhr.onreadystatechange = function () {
-						if (xhr.readyState === 4 && xhr.status === 200) {
-
-
-
-							//Redirect to Publish page
-							response = JSON.parse(this.responseText);
-							$('.modal-proposta-enviada').modal('show');
-							setTimeout(function () { $('.modal-proposta-enviada').modal('hide'); }, 3000);
-
-							console.log('proposta enviada:', response["status"]);
-
-							// sendToPublish(jData, response["status"]);
-
-						}
-
-						else if (xhr.status === 500) {
-
-							$('.modal-proposta-invalido').modal('show');
-
-
-							console.log('proposta invalida:', response["error"]);
-						}
-					};
-
-					// Sending data with the request 
-					xhr.send(jData);
-				}
-
-
-
-			}
-
-			function storeUserDataInSession(itemId) {
-				// window.sessionStorage.setItem('itemData', itemData);
-				window.sessionStorage.setItem('itemId', itemId);
-			}
-			function sendToPublish(jData, itemId) {
-				console.log('Enviado o  item:', jData["nome"], itemId);
-				console.log('id stored in session:', itemId);
-				// storeUserDataInSession(jData, itemId);
-				storeUserDataInSession(itemId); //saving only the id
-
-				location.replace("Publish.htm");
-			};
-		</script>
 </body>
 
 </html>

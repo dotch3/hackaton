@@ -53,28 +53,17 @@
 				<img src="images/profile.png" width="94" height="94" alt="Perfil" />
 			</div>
 			<ul class="list-unstyled components">
-				<li class="active">
-					<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Minhas publicações</a>
-					<ul class="collapse list-unstyled" id="homeSubmenu">
-						<li>
-							<a href="#">Item 1</a>
-						</li>
-						<li>
-							<a href="#">Item 2</a>
-						</li>
-						<li>
-							<a href="#">Item 3</a>
-						</li>
-					</ul>
+				<li>
+					<a href="MinhasPub.htm">Minhas Publicações</a>
 				</li>
 				<li>
-					<a href="#">Publicações salvas</a>
+					<a href="#">Publicações Salvas</a>
 				</li>
 				<li>
 					<a href="#">Configurações</a>
 				</li>
 				<li>
-					<a href="#">Central de ajuda</a>
+					<a href="#">Central de Ajuda</a>
 				</li>
 			</ul>
 			<ul class="list-unstyled">
@@ -121,11 +110,11 @@
 			<div class="container-fluid">
 				<p>&nbsp;</p>
 				<div class="row">
-					<div class="col-xs-1"></div>
+					<div class="col-xs-2"></div>
 					<div class="col-xs-10">
 						<h5>Você precisa de algum dos itens abaixo?</h5>
 					</div>
-					<div class="col-xs-3"></div>
+					<div class="col-xs-2"></div>
 				</div>
 				<div class="row">
 					<div class="col-xs-3"><a href="Itens.htm"><img src="images/menu_top01.png" width="75" height="51"
@@ -261,11 +250,9 @@
 
 		<script type="text/javascript">
 			$(document).ready(function () {
-				checkCookie();
-
+				getSession('appBV');
 				pagItens();
 			});
-			
 		</script>
 
 </body>

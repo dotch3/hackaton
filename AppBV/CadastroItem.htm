@@ -64,28 +64,17 @@
                 <img src="images/profile.png" width="94" height="94" alt="Perfil" />
             </div>
             <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Minhas publicações</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Item 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Item 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Item 3</a>
-                        </li>
-                    </ul>
-                </li>
+				<li>
+					<a href="MinhasPub.htm">Minhas Publicações</a>
+				</li>
                 <li>
-                    <a href="#">Publicações salvas</a>
+                    <a href="#">Publicações Salvas</a>
                 </li>
                 <li>
                     <a href="#">Configurações</a>
                 </li>
                 <li>
-                    <a href="#">Central de ajuda</a>
+                    <a href="#">Central de Ajuda</a>
                 </li>
             </ul>
             <ul class="list-unstyled">
@@ -261,9 +250,9 @@
                                     id="idUserProprietario" placeholder="" value="1" />
                                 <script>
                                     //Getting info from the sessionStorage
-                                    if (sessionStorage.getItem("idUser") !== undefined) {
+                                    if (getSession('appBV') !== undefined) {
                                         console.log("getting info of the user logged in")
-                                        document.getElementById("idUserProprietario").value = sessionStorage.getItem("idUser");
+                                        document.getElementById("idUserProprietario").value = getSession('appBV');
                                     }
 
                                 </script>
@@ -503,7 +492,7 @@
         <script>
 
             $(document).ready(function () {
-                checkCookie();
+                getSession('appBV');
                 $("#sidebar").mCustomScrollbar({
                     theme: "minimal"
                 });

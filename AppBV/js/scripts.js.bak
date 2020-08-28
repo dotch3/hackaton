@@ -399,7 +399,7 @@ function pagMinhasPub() {
 */
 $(document).ready(function () {
 	var nome = 'Boa Vizinhança';
-	var versao = ' v1.0';
+	var versao = ' v0.8';
 	document.title = 'APP ' + nome + versao;
 	$('.appTitulo').text(nome + versao);
 });
