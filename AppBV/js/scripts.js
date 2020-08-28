@@ -3,14 +3,26 @@
 */
 function runWS(requestURL, callback) {
 	var rawFile = new XMLHttpRequest();
+
 	rawFile.overrideMimeType("application/json");
-	rawFile.open("GET", requestURL, true);
+	if (requestURL.includes("findAll")) {
+		console.log("findAll...")
+		rawFile.open("GET", requestURL, false);
+	}
+	else {
+		rawFile.open("GET", requestURL, true);
+	}
+
+	rawFile.setRequestHeader("Content-Type", "application/json");
 	rawFile.onreadystatechange = function () {
-		if (rawFile.readyState === 4 && rawFile.status == "200") {
+		if (rawFile.readyState === 4 && rawFile.status == 200) {
 			callback(rawFile.responseText);
 		}
+		else {
+			console.log("fail runWS:", " status:", rawFile.status, " state:", rawFile.readyState)
+		}
 	}
-	rawFile.send(null);
+	rawFile.send();
 }
 
 function popularItens(jsonObj) {
@@ -92,6 +104,7 @@ function tipoMoeda(tipo, valor) {
     Cookie functions
 */
 function setCookie(cnome, cvalor, exdias) {
+	console.log("setting cookie");
 	var d = new Date();
 	d.setTime(d.getTime() + (exdias * 24 * 60 * 60 * 1000));
 	var expires = "expires=" + d.toGMTString();
@@ -99,6 +112,7 @@ function setCookie(cnome, cvalor, exdias) {
 }
 
 function getCookie(cnome) {
+	console.log("getting cookie");
 	var name = cnome + "=";
 	var ca = document.cookie.split(';');
 	for (var i = 0; i < ca.length; i++) {
@@ -112,11 +126,13 @@ function getCookie(cnome) {
 }
 
 function checkCookie() {
+	console.log("checking cookie");
 	var cnome = getCookie("appBV");
 	if (cnome != "") {
 		return cnome;
-	} else {
-		window.location.href = "Default.htm";
+	} else if (sessionStorage.getItem("idUser") !== undefined) {
+		// window.location.href = "Default.htm";
+		console.log('check your Cookie configuration')
 	}
 }
 
@@ -149,8 +165,8 @@ function sendCredentials(email, senha) {
 
 	// Creating a XHR object
 	let xhr = new XMLHttpRequest();
-	//let url = "http://54.163.66.128:8081/api/v1/authenticate"; //Rodando no AWS
-	let url = "http://localhost:8081/api/v1/authenticate" //Rodando no local
+	let url = "http://54.163.66.128:8081/api/v1/authenticate"; //Rodando no AWS
+	//let url = "http://localhost:8081/api/v1/authenticate" //Rodando no local
 	// http://54.163.66.128:8080 AWS
 	var response = '';
 
@@ -162,18 +178,24 @@ function sendCredentials(email, senha) {
 
 	// Create a state change callback
 	xhr.onreadystatechange = function () {
+		console.log("state changed");
 		if (xhr.readyState === 4 && xhr.status === 200) {
 
 			// Print received data from server 
+			console.log("state 200");
 			response = JSON.parse(this.responseText);
 			console.log('Validado com sucesso:', response);
-			if (response.data !== undefined) {
+			if (response.data["idUser"] !== undefined) {
 				console.log('login succeed!, setting cookies');
 				setCookie("appBV", email, 1);
+				window.cookie = "appBV", email;
 
 				//Saving the idUser in the sessionStorage
-				window.sessionStorage.setItem('idUser', response.data);
+				window.sessionStorage.setItem('idUser', response.data["idUser"]);
 				window.location.href = "Itens.htm";
+			}
+			else {
+				console.log("response data issue");
 			}
 		}
 		else {
@@ -210,16 +232,12 @@ $('#btnPesquisar').on('click', function (event) {
 		$(this).prop("disabled", true).html('<i class="fas fa-spinner" style="font-size: 20px;"></i>');
 		$('.modal-carregando').modal('show');
 
-<<<<<<< HEAD
-		runWS('http://localhost:8080/items/search/' + pesq, function(text){
-=======
 		var clonedRows = document.querySelectorAll('.clonedrow');
 		for (var i = 0; i < clonedRows.length; i++) {
 			clonedRows[i].parentNode.removeChild(clonedRows[i]);
 		}
 
-		runWS('http://localhost:8080/items/search/' + pesq, function (text) {
->>>>>>> 36b856c8f73876739e65c5547f338dcb4e342d3b
+		runWS('http://54.163.66.128:8080/items/search/' + pesq, function (text) {
 			var data = JSON.parse(text);
 			if (data.length > 0) {
 				var clonedRows = document.querySelectorAll('.clonedrow');
@@ -268,7 +286,7 @@ function pagItens() {
 
 	$('.modal-carregando').modal('show');
 
-	runWS('http://localhost:8080/items/findAll', function (text) {
+	runWS('http://54.163.66.128:8080/items/findAll', function (text) {
 		var data = JSON.parse(text);
 		if (data !== undefined) {
 			popularItens(data);
@@ -303,7 +321,7 @@ function pagDetalhe() {
 	if (urlParams.has("id") === true) {
 		idItem = urlParams.get("id");
 
-		runWS('http://localhost:8080/items/findItem/' + idItem, function (text) {
+		runWS('http://54.163.66.128:8080/items/findItem/' + idItem, function (text) {
 			var data = JSON.parse(text);
 
 			if (data !== undefined) {
