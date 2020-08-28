@@ -59,11 +59,19 @@ function detalheItem(jsonObj, idItem) {
 
 	if (jsonObj.idItem !== null) {
 		if (jsonObj.idItem == idItem) {
-			document.getElementsByClassName("pub_tags")[numItem].innerHTML = jsonObj.tags;
-			document.getElementsByClassName("pub_imagem")[numItem].innerHTML = '<img src="data:image/png;base64,' + jsonObj.foto + '" width="60" height="60" />';
 			document.getElementsByClassName("pub_titulo")[numItem].innerHTML = jsonObj.nome;
 			document.getElementsByClassName("pub_descricao")[numItem].innerHTML = jsonObj.descricao;
+			document.getElementsByClassName("pub_imagem")[numItem].innerHTML = '<img src="data:image/png;base64,' + jsonObj.foto + '" width="60" height="60" />';
+			document.getElementsByClassName("pub_observacao")[numItem].innerHTML = jsonObj.observacao;
+			document.getElementsByClassName("pub_tags")[numItem].innerHTML = jsonObj.tags;
 			document.getElementsByClassName("pub_data")[numItem].innerHTML = jsonObj.dataPublicacao;
+
+			// Link User
+			var urlDetalheUser = 'DetalheUser.htm?id=' + jsonObj.idUserProprietario;
+			document.getElementsByClassName("pub_urlUserId")[numItem].href = urlDetalheUser;
+			document.getElementById("idUser").value = jsonObj.idUserProprietario;
+			document.getElementById("valor").value = jsonObj.valor;
+
 		}
 		else {
 			$('.modal-carregando').modal('hide');
@@ -192,6 +200,8 @@ function sendCredentials(email, senha) {
 
 				//Saving the idUser in the sessionStorage
 				window.sessionStorage.setItem('idUser', response.data["idUser"]);
+				window.sessionStorage.setItem('documentUser', response.data["document"]);
+				window.sessionStorage.setItem('userType', response.data["userType"]);
 				window.location.href = "Itens.htm";
 			}
 			else {
@@ -325,7 +335,16 @@ function pagDetalhe() {
 			var data = JSON.parse(text);
 
 			if (data !== undefined) {
+				console.log('data item found:', idItem);
 				detalheItem(data, idItem);
+
+				//Setting the session and cookie with the itemId
+				setCookie("idItem", idItem, 1);
+				//Saving the idUser in the sessionStorage
+				window.sessionStorage.setItem('idItem', idItem);
+				window.sessionStorage.setItem('idUser', data["idUserProprietario"]);
+
+
 
 				$('.modal-carregando').modal('hide');
 			}
