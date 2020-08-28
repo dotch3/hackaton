@@ -214,7 +214,7 @@ function sendCredentials(email, senha) {
 				window.sessionStorage.setItem('idUser', response.data["idUser"]);
 				window.sessionStorage.setItem('documentUser', response.data["document"]);
 				window.sessionStorage.setItem('userType', response.data["userType"]);
-				
+
 				window.location.href = "Itens.htm";
 			}
 			else {
@@ -345,7 +345,14 @@ function pagDetalhe() {
 			var data = JSON.parse(text);
 
 			if (data !== undefined) {
+				console.log('data item found:', idItem);
 				detalheItem(data, idItem);
+				//Setting the session and cookie with the itemId
+				// setCookie("idItem", idItem, 1);
+				//Saving the idUser in the sessionStorage
+				window.sessionStorage.setItem('idItem', idItem);
+				window.sessionStorage.setItem('idUser', data["idUserProprietario"]);
+
 
 				$("txtIdItem").val(idItem);
 				$('.modal-carregando').modal('hide');
