@@ -143,312 +143,249 @@
                 <h5 style="text-align-last: center;color: #EFA845;font-weight: 200;
                 padding-top: 0.5rem"> <strong>PERFIL USUARIO</strong></h5>
                 <!-- For printing result from server -->
-                <div class="col-md-4 preview-image container">
-                    <p class="result" name="result" id="result"></p>
-                </div>
-                <div class="container">
 
+                <div class="col-md-12 preview-image container">
+                    <div class="personal-image">
+                        <div class="profile-img img_upload">
+                            <label for="imgItem" class="label">
 
-                    <div class="col-md-12 preview-image container">
-                        <div class="personal-image">
-                            <div class="profile-img img_upload">
-                                <label for="imgItem" class="label">
-
-                                    <figure class="personal-figure">
-                                        <img id="imgProfile" style="width: 120px;" class="personal-avatar">
-                                        <figcaption class="personal-figcaption">
-                                            <img src="images/icons/camera-white.png">
-                                        </figcaption>
-                                    </figure>
-                                </label>
-                            </div>
+                                <figure class="personal-figure">
+                                    <img id="imgProfile" style="width: 120px;" class="personal-avatar">
+                                    <figcaption class="personal-figcaption">
+                                        <img src="images/icons/camera-white.png">
+                                    </figcaption>
+                                </figure>
+                            </label>
                         </div>
                     </div>
+                </div>
 
+                <!-- Detalhes do item -->
+                <div class="col-md-12 container-fluid">
                     <div class="column container-fluid col-md-12">
                         <div class="form-group">
-                            <label for="nome"> NOME</label>
-                            <input type="text" class="form-control" name="nome" id="nome" placeholder="" value=""
-                                onblur="checkData(this.value)" readonly />
+                            <label for="name"> NOME</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="" value=""
+                                autocomplete=“off” />
                         </div>
 
                         <div class="md-form mb-0 form-group ">
-                            <label for="message">DESCRIÇÃO</label>
-                            <textarea type="text" id="descricao" name="descricao" rows="2"
-                                class="form-control md-textarea" placeholder="" onchange="checkData(this.value)"
-                                style="resize: none;" readonly></textarea>
+                            <label for="document">DOCUMENTO</label>
+                            <input type="text" id="document" name="document" class="form-control" placeholder=""
+                                autocomplete=“off” />
                         </div>
 
                         <div class="form-group bv_options">
-                            <label for="quantidadeDisponivel"> QUANTIDADE</label> <br>
-                            <input type="text" class="form-control" name="quantidadeDisponivel"
-                                id="quantidadeDisponivel" value="" onblur="checkData(this.value)" readonly />
+                            <label for="phone"> TELEFONO</label> <br>
+                            <input type="text" class="form-control" name="phone" id="phone" value="" />
                         </div>
-                        <!-- VALOR -->
+                        <!-- TYPE -->
                         <div class="form-group ">
-                            <label for="valor">VALOR</label>
-                            <input type="text" class="form-control" name="valor" id="valor" value=""
-                                onblur="checkData(this.value)" readonly />
+                            <p>&nbsp;</p>
 
                             <div class="container detalhe-item">
                                 <div class="form-check container-fluid container">
-                                    <input class="form-check-input" type="radio" name="tipoValor" id="mvirtual"
-                                        value="1" onchange="checkData(this.value)" checked>
-                                    <label class="form-check-label" for="mvirtual">
-                                        Moeda Virtual
+                                    <input class="form-check-input" type="radio" name="userType" id="customer"
+                                        value="CUSTOMER" onchange="checkData(this.value)" checked>
+                                    <label class="form-check-label" for="customer">
+                                        Vizinho
                                     </label>
                                 </div>
                                 <div class="form-check container-fluid container">
-                                    <input class="form-check-input" type="radio" name="tipoValor" id="mreal" value="2"
-                                        onchange="checkData(this.value)">
-                                    <label class="form-check-label" for="mreal">
-                                        Moeda Reais
+                                    <input class="form-check-input" type="radio" name="userType" id="partner"
+                                        value="PARTNER">
+                                    <label class="form-check-label" for="partner">
+                                        Parceiro
                                     </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="container">
-                        <p>&nbsp;</p>
-                        <div class="col text-center">
-                            <button onclick="window.location.href='Itens.htm';" class="btn btn-outline-secondary"
-                                style="background: #ec971f !important;  color: white !important;  
+                </div>
+                <div class="container">
+                    <p>&nbsp;</p>
+                    <div class="col text-center">
+                        <button onclick="window.location.href='Itens.htm';" class="btn btn-outline-secondary"
+                            style="background: #ec971f !important;  color: white !important;  
                                                                 font-weight: 400 !important; border-color: #feb856;
                                                                  font-size: 1.25rem;border-radius: 20px;width: 180px;">VOLTAR</button>
-                            <p>&nbsp;</p>
-                        </div>
+                        <p>&nbsp;</p>
                     </div>
                 </div>
-
-                <!-- End form Cadastrar -->
             </div>
 
-
-            <p>&nbsp;</p>
-            <div class="navbar navbar-default navbar-fixed-bottom">
-                <div class="container">
-                    <p class="navbar-text pull-left">
-
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xs-1"></div>
-                            <div class="col-xs-10"><img src="images/menu_bottom.png" width="268" height="50" />
-                            </div>
-                            <div class="col-xs-3"></div>
-                        </div>
-                    </div>
-
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="overlay"></div>
-        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    Ao clicar conecta com a API Java de pesquisa
-                </div>
-            </div>
+            <!-- End form Cadastrar -->
         </div>
 
 
+        <p>&nbsp;</p>
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p class="navbar-text pull-left">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-10"><a href="CadastroItem.htm"><img src="images/menu_bottom.png" width="268"
+                                    height="50" /></a></div>
+
+                        <div class="col-xs-1"></div>
+                    </div>
+                </div>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                Ao clicar conecta com a API Java de pesquisa
+            </div>
+        </div>
+    </div>
 
 
 
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-            crossorigin="anonymous"></script>
+
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
 
 
 
-        <!-- end inherited -->
-        <!-- Tags -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
-        <script src="dist/bootstrap-tagsinput.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/generic.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/html.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/javascript.js"></script>
+    <!-- end inherited -->
+    <!-- Tags -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="dist/bootstrap-tagsinput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/generic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/javascript.js"></script>
 
 
 
 
 
 
-        <!-- FUNCTIONS -->
-        <!-- Script for Image -->
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"> </script>
-        <script>
-            $(function () {
-                $('#imgItem').change(function () {
-                    $('#imgProfile').show();
-                    const file = $(this)[0].files[0];
-                    console.log("imgItem", file);
-                    const fileReader = new FileReader();
-                    fileReader.onloadend = function () {
-                        $('#imgProfile').attr('src', fileReader.result)
-                    }
-                    fileReader.readAsDataURL(file)
-                })
-            })
-        </script>
-        <!-- End preview Image -->
+    <!-- FUNCTIONS -->
+    <!-- Script for Image -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"> </script>
 
-        <!-- Converting the image into base 64 -->
-        <script>
-            function changeToBase64() {
-                if (this.files && this.files[0]) {
-                    console.log("changing ToBase64");
-                    var fileReader = new FileReader();
-                    fileReader.addEventListener("load", function (e) {
-                        document.getElementById("foto").value = e.target.result;
-                        var rawData = document.getElementById("foto").value;
-                        // console.log("raw", rawData);
-                        const base64Img = rawData.replace(/^data:.+;base64,/, '');
-                        console.log("valueBase64:", base64Img);
-                        document.getElementById("foto").value = base64Img;
-                        console.log("new value for foto", document.getElementById("foto").value)
-                    });
 
-                    fileReader.readAsDataURL(this.files[0]);
 
-                }
-            }
-            document.getElementById("imgItem").addEventListener("change", changeToBase64);
-        </script>
-        <!-- end converter -->
+    <script>
+        function checkData(a) {
+            console.log(a);
+        }
 
-        <!-- Convert to JSON -->
-        <script>
-            // Serializing the data and converting to json format
-            $.fn.serializeObject = function () {
-                var o = {};
-                var a = this.serializeArray();
-                $.each(a, function () {
-                    if (o[this.name] !== undefined) {
-                        if (!o[this.name].push) {
-                            o[this.name] = [o[this.name]];
-                        }
-                        o[this.name].push(this.value || '');
-                    } else {
-                        o[this.name] = this.value || '';
-                    }
-                });
-                return o;
-            };
+    </script>
 
-        </script>
-        <script>
-            function checkData(a) {
-                console.log(a);
-            }
+
+    <!-- Modals -->
+    <!-- jQuery Custom Scroller CDN -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js">
         </script>
 
-        <script>
-            // Sending the data
-            function sendJsonData() {
-                var jData = JSON.stringify($('form').serializeObject());
-                console.log('JSON', jData);
-                // Creating a XHR object
-                let xhr = new XMLHttpRequest();
-                let url = "http://54.163.66.128:8080/items/publish";
-                var response = '';
+    <!-- JS functions -->
+    <script src="js/scripts.js"></script>
 
-                // open a connection
-                xhr.open("POST", url, true);
+    <script>
 
-                // Set the request header i.e. which type of content you are sending
-                xhr.setRequestHeader("Content-Type", "application/json");
-
-                // Create a state change callback
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-
-                        // Print received data from server 
-                        result = document.getElementById("result");
-                        response = JSON.parse(this.responseText);
-                        console.log('Response:', response["idItem"]);
-                        result.innerHTML = "Item criado com sucesso!" + response["idItem"] + " - " + response["nome"];
-
-                        //Redirect to Publish page
-                        sendToPublish(jData, response["idItem"]);
-
-
-
-                    }
-                    else if (xhr.status === 400) {
-                        result = document.getElementById("result");
-                        response = JSON.parse(this.responseText);
-                        result.innerHTML = "parece que esqueci alguma coisa.  -_-' <br>" + response["error"] + " - Status: " + response["status"];
-
-                        console.log('Response:', response["idItem"]);
-                    }
-
-                    else if (xhr.status === 500) {
-                        result = document.getElementById("result");
-                        response = JSON.parse(this.responseText);
-                        result.innerHTML = " -_-' <br>" + response["error"] + " - Status: " + response["status"];
-
-                        console.log('Response:', response["idItem"]);
-                    }
-                };
-
-                // Sending data with the request 
-                xhr.send(jData);
-
-            }
-
-            function storeUserDataInSession(itemId) {
-                // window.sessionStorage.setItem('itemData', itemData);
-                window.sessionStorage.setItem('itemId', itemId);
-            }
-            function sendToPublish(jData, itemId) {
-                console.log('Enviado o  item:', jData["nome"], itemId);
-                console.log('id stored in session:', itemId);
-                // storeUserDataInSession(jData, itemId);
-                storeUserDataInSession(itemId); //saving only the id
-
-                location.replace("Publish.htm");
-            };
-        </script>
-
-
-        <!-- Modals -->
-        <!-- jQuery Custom Scroller CDN -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js">
-            </script>
-
-        <!-- JS functions -->
-        <script src="js/scripts.js"></script>
-
-        <script>
-
-            $(document).ready(function () {
-                checkCookie();
-                $("#sidebar").mCustomScrollbar({
-                    theme: "minimal"
-                });
-                $('#dismiss, .overlay').on('click', function () {
-                    $('#sidebar').removeClass('active');
-                    $('.overlay').removeClass('active');
-                });
-
-                $('#sidebarCollapse').on('click', function () {
-                    $('#sidebar').addClass('active');
-                    $('.overlay').addClass('active');
-                    $('.collapse.in').toggleClass('in');
-                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-                });
+        $(document).ready(function () {
+            checkCookie();
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
             });
-        </script>
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+            getUserData();
+        });
+    </script>
+
+    <script>
+        // Populating user data
+
+        function getUserData(itemId) {
+            // window.sessionStorage.setItem('itemData', itemData);
+            var idUser = window.sessionStorage.getItem('idUser');
+            var typeUSer = window.sessionStorage.getItem('userType');
+
+            getDataUser(idUser, typeUser);
+        };
+        function getDataUser(idUser, typeUSer) {
+            var endpoint = '';
+            if (typeUSer === "CUSTOMER") {
+                endpoint = "http://54.163.66.128:8081/api/v1/customer/" + idUser;
+
+            }
+            else if (typeUSer === "PARTNER") {
+                endpoint = "http://54.163.66.128:8081/api/v1/partner/" + idUser;
+            }
+            else {
+
+            }
+
+        };
+
+        function runMS(documentUser, endpoint) {
+            
+            let xhr = new XMLHttpRequest();
+            let url = endpoint;
+            var response = '';
+
+            // open a connection
+            xhr.open("GET", url, true);
+
+            // Set the request header i.e. which type of content you are sending
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Create a state change callback
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+
+                    // Print received data from server 
+                    result = document.getElementById("result");
+                    response = JSON.parse(this.responseText);
+                    console.log('Response:', response["idItem"]);
+                    result.innerHTML = "Item criado com sucesso!" + response["idItem"] + " - " + response["nome"];
+
+                    //Redirect to Publish page
+                    sendToPublish(jData, response["idItem"]);
+                }
+
+                else if (xhr.status === 500) {
+                    result = document.getElementById("result");
+                    response = JSON.parse(this.responseText);
+                    result.innerHTML = " -_-' <br>" + response["error"] + " - Status: " + response["status"];
+
+                    console.log('Response:', response["idItem"]);
+                }
+            };
+
+            // Sending data with the request 
+            xhr.send(jData);
+
+        }
+
+    </script>
     </div>
 </body>
 
