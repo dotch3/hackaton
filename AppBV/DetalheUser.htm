@@ -334,21 +334,22 @@
             // window.sessionStorage.setItem('itemData', itemData);
             var idUser = window.sessionStorage.getItem('idUser');
             var typeUser = window.sessionStorage.getItem('userType');
+            var documentUser = window.sessionStorage.getItem("documentUser");
 
-            getDataUser(idUser, typeUser);
+            getDataUser(idUser, documentUser, typeUser);
         };
-        function getDataUser(idUser, typeUser) {
+        function getDataUser(idUser, documentUser, typeUser) {
             var endpoint = '';
             if (typeUser === "CUSTOMER") {
                 console.log("type customer");
-                endpoint = "http://54.163.66.128:8081/api/v1/customer/" + idUser;
-                runMS(idUser, endpoint, typeUser);
+                endpoint = "http://54.163.66.128:8081/api/v1/customer/" + documentUser;
+                runMS(endpoint, typeUser);
 
             }
             else if (typeUser === "PARTNER") {
                 console.log("type partner");
-                endpoint = "http://54.163.66.128:8081/api/v1/partner/" + idUser;
-                runMS(idUser, endpoint, typeUser);
+                endpoint = "http://54.163.66.128:8081/api/v1/partner/" + documentUser;
+                runMS(endpoint, typeUser);
             }
             else {
 
@@ -356,12 +357,13 @@
 
         };
 
-        function runMS(documentUser, endpoint, typeUser) {
+        function runMS(endpoint, typeUser) {
 
             let xhr = new XMLHttpRequest();
             let url = endpoint;
             var response = '';
 
+            console.log("MS connection:", endpoint);
             // open a connection
             xhr.open("GET", url, true);
 
@@ -371,15 +373,14 @@
             // Create a state change callback
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-
+                    response = JSON.parse(this.responseText);
+                    console.log("data", response);
                     // Print received data from server 
                     document.getElementById("name").value = response.data["name"];
                     document.getElementById("document").value = response.data["document"];
                     document.getElementById("phone").value = response.data["phone"];
                     document.getElementById(typeUser).checked = true;
-
                 }
-
                 else if (xhr.status === 500 || xhr.status == 404) {
                     // $('.modal-user-invalido').modal('show');
                     // setTimeout(function () { $('.modal-user-invalido').modal('hide'); }, 3000);
@@ -389,7 +390,6 @@
 
             // Sending data with the request 
             xhr.send();
-            return response;
 
         }
 
