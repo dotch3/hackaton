@@ -22,7 +22,10 @@ public class EmprestimoService {
 	public Emprestimo registrarProposta(Emprestimo proposta){
 		proposta.setStatus(0);
 		proposta.setAvaliacao("0");
-		return repository.save(proposta);
+		Emprestimo empr = repository.save(proposta);
+		Item item = itemRepository.findById(empr.getIdItem()).orElse(null);
+		empr.setItem(item);
+		return empr;
 	}
 	
 	public List<Emprestimo> getEmprestimosByUser(Integer idUser){
