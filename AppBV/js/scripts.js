@@ -131,7 +131,7 @@ function checkCookie() {
 	if (cnome != "") {
 		return cnome;
 	} else if (sessionStorage.getItem("idUser") !== undefined) {
-		window.location.href = "Default.htm";
+		// window.location.href = "Default.htm";
 		console.log('check your Cookie configuration')
 	}
 }
