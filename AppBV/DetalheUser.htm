@@ -185,15 +185,14 @@
 
                             <div class="container detalhe-item">
                                 <div class="form-check container-fluid container">
-                                    <input class="form-check-input" type="radio" name="userType" id="customer"
-                                        value="CUSTOMER" onchange="checkData(this.value)" checked>
+                                    <input class="form-check-input" type="radio" name="userType" id="CUSTOMER" value=""
+                                        onchange="checkData(this.value)" checked>
                                     <label class="form-check-label" for="customer">
                                         Vizinho
                                     </label>
                                 </div>
                                 <div class="form-check container-fluid container">
-                                    <input class="form-check-input" type="radio" name="userType" id="partner"
-                                        value="PARTNER">
+                                    <input class="form-check-input" type="radio" name="userType" id="PARTNER" value="">
                                     <label class="form-check-label" for="partner">
                                         Parceiro
                                     </label>
@@ -208,7 +207,7 @@
                         <button onclick="window.location.href='Itens.htm';" class="btn btn-outline-secondary"
                             style="background: #ec971f !important;  color: white !important;  
                                                                 font-weight: 400 !important; border-color: #feb856;
-                                                                 font-size: 1.25rem;border-radius: 20px;width: 180px;">VOLTAR</button>
+                                                                 font-size: 1.25rem;border-radius: 20px;width: 180px;">VOLTAR PARA LISTA</button>
                         <p>&nbsp;</p>
                     </div>
                 </div>
@@ -242,6 +241,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 Ao clicar conecta com a API Java de pesquisa
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-user-invalido" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                Usuario invalido.
             </div>
         </div>
     </div>
@@ -335,13 +342,13 @@
             if (typeUser === "CUSTOMER") {
                 console.log("type customer");
                 endpoint = "http://54.163.66.128:8081/api/v1/customer/" + idUser;
-                runMS(idUser, endpoint);
+                runMS(idUser, endpoint, typeUser);
 
             }
             else if (typeUser === "PARTNER") {
                 console.log("type partner");
                 endpoint = "http://54.163.66.128:8081/api/v1/partner/" + idUser;
-                runMS(idUser, endpoint);
+                runMS(idUser, endpoint, typeUser);
             }
             else {
 
@@ -349,7 +356,7 @@
 
         };
 
-        function runMS(documentUser, endpoint) {
+        function runMS(documentUser, endpoint, typeUser) {
 
             let xhr = new XMLHttpRequest();
             let url = endpoint;
@@ -366,26 +373,23 @@
                 if (xhr.readyState === 4 && xhr.status === 200) {
 
                     // Print received data from server 
-                    result = document.getElementById("result");
-                    response = JSON.parse(this.responseText);
-                    console.log('Response:', response["idItem"]);
-                    result.innerHTML = "Item criado com sucesso!" + response["idItem"] + " - " + response["nome"];
+                    document.getElementById("name").value = response.data["name"];
+                    document.getElementById("document").value = response.data["document"];
+                    document.getElementById("phone").value = response.data["phone"];
+                    document.getElementById(typeUser).checked = true;
 
-                    //Redirect to Publish page
-                    sendToPublish(jData, response["idItem"]);
                 }
 
-                else if (xhr.status === 500) {
-                    result = document.getElementById("result");
-                    response = JSON.parse(this.responseText);
-                    result.innerHTML = " -_-' <br>" + response["error"] + " - Status: " + response["status"];
-
-                    console.log('Response:', response["idItem"]);
+                else if (xhr.status === 500 || xhr.status == 404) {
+                    // $('.modal-user-invalido').modal('show');
+                    // setTimeout(function () { $('.modal-user-invalido').modal('hide'); }, 3000);
+                    console.log('Response GET user:', response["status"]);
                 }
             };
 
             // Sending data with the request 
             xhr.send();
+            return response;
 
         }
 
