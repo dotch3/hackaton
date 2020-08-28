@@ -210,6 +210,11 @@ function sendCredentials(email, senha) {
 			if (response.data["idUser"] !== undefined) {
 				console.log('login succeed!, setting session');
 				setSession("appBV", response.data["idUser"], 10);
+				//Saving the idUser in the sessionStorage
+				window.sessionStorage.setItem('idUser', response.data["idUser"]);
+				window.sessionStorage.setItem('documentUser', response.data["document"]);
+				window.sessionStorage.setItem('userType', response.data["userType"]);
+				
 				window.location.href = "Itens.htm";
 			}
 			else {
