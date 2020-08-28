@@ -326,18 +326,22 @@
         function getUserData(itemId) {
             // window.sessionStorage.setItem('itemData', itemData);
             var idUser = window.sessionStorage.getItem('idUser');
-            var typeUSer = window.sessionStorage.getItem('userType');
+            var typeUser = window.sessionStorage.getItem('userType');
 
             getDataUser(idUser, typeUser);
         };
-        function getDataUser(idUser, typeUSer) {
+        function getDataUser(idUser, typeUser) {
             var endpoint = '';
-            if (typeUSer === "CUSTOMER") {
+            if (typeUser === "CUSTOMER") {
+                console.log("type customer");
                 endpoint = "http://54.163.66.128:8081/api/v1/customer/" + idUser;
+                runMS(idUser, endpoint);
 
             }
-            else if (typeUSer === "PARTNER") {
+            else if (typeUser === "PARTNER") {
+                console.log("type partner");
                 endpoint = "http://54.163.66.128:8081/api/v1/partner/" + idUser;
+                runMS(idUser, endpoint);
             }
             else {
 
@@ -346,7 +350,7 @@
         };
 
         function runMS(documentUser, endpoint) {
-            
+
             let xhr = new XMLHttpRequest();
             let url = endpoint;
             var response = '';
@@ -381,7 +385,7 @@
             };
 
             // Sending data with the request 
-            xhr.send(jData);
+            xhr.send();
 
         }
 

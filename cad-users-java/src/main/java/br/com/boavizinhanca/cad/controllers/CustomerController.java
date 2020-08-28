@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081"},maxAge=4800, allowCredentials="false")
+@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
 @RestController()
 @Api(value = "Customer's API",tags = { "Customers" })
 @RequestMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
@@ -32,6 +32,7 @@ public class CustomerController {
 
     @ApiOperation("Search customers")
     @ApiResponse(code = 200, message = "OK", response = StandardResponseListCustomer.class)
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
     @GetMapping(value = "/customer", produces = "application/json")
     public ResponseEntity<StandardResponseListCustomer> findAllCustomers() {
         return service.findAll();
@@ -39,6 +40,7 @@ public class CustomerController {
 
     @ApiOperation("Save customer")
     @ApiResponse(code = 201, message = "OK", response = StandardResponseCustomer.class)
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
     @PostMapping(value = "/customer", consumes = "application/json", produces = "application/json")
     @ResponseBody
     public ResponseEntity<StandardResponseCustomer> saveCustomer(@RequestBody @ApiParam(name = "Customer", value = "Customer") CustomerSaveDTO customerSaveDTO) {
@@ -47,6 +49,7 @@ public class CustomerController {
 
     @ApiOperation("Update customer")
     @ApiResponse(code = 200, message = "OK", response = StandardResponseCustomer.class)
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
     @PutMapping(value = "/customer", consumes = "application/json", produces = "application/json")
     @ResponseBody
     public ResponseEntity<StandardResponseCustomer> updateCustomer(@RequestBody CustomerUpdateDTO customerUpdateDTO) {
@@ -55,6 +58,7 @@ public class CustomerController {
 
     @ApiOperation("Find customer by document")
     @ApiResponse(code = 200, message = "OK", response = StandardResponseCustomer.class)
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
     @GetMapping(value = "/customer/{document}", produces = "application/json")
     @ResponseBody
     public ResponseEntity<StandardResponseCustomer> findByDocument(@PathVariable @ApiParam(required = true) String document) {
@@ -63,6 +67,7 @@ public class CustomerController {
 
     @ApiOperation("Delete customer")
     @ApiResponse(code = 204, message = "OK")
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
     @DeleteMapping(value = "/customer/{document}")
     public ResponseEntity deletePartner(@PathVariable @ApiParam(required = true) String document) {
         return service.deleteCustomerByDocument(document);

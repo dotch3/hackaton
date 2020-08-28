@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081"},maxAge=4800, allowCredentials="false")
+@CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
 @RestController()
 @Api(value = "Partner's API",tags = { "Partners" })
 @RequestMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
@@ -33,6 +33,7 @@ public class PartnerController {
 
     @ApiOperation("Search partners")
     @ApiResponse(code = 200, message = "OK", response = StandardResponseListPartner.class)
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
     @GetMapping(value = "/partner", produces = "application/json")
     public ResponseEntity<StandardResponseListPartner> findAllPartners() {
         return service.findAll();
@@ -40,6 +41,7 @@ public class PartnerController {
 
     @ApiOperation("Save partner")
     @ApiResponse(code = 201, message = "OK", response = StandardResponsePartner.class)
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
     @PostMapping(value = "/partner", consumes = "application/json", produces = "application/json")
     @ResponseBody
     public ResponseEntity<StandardResponsePartner> savePartner(@RequestBody @ApiParam(name = "Partner", value = "Partner") PartnerSaveDTO partnerSaveDTO) {
@@ -48,6 +50,7 @@ public class PartnerController {
 
     @ApiOperation("Update partner")
     @ApiResponse(code = 200, message = "OK", response = StandardResponsePartner.class)
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
     @PutMapping(value = "/partner", consumes = "application/json", produces = "application/json")
     @ResponseBody
     public ResponseEntity<StandardResponsePartner> updatePartner(@RequestBody @ApiParam(name = "Partner", value = "Partner") PartnerUpdateDTO partnerUpdateDTO) {
@@ -56,6 +59,7 @@ public class PartnerController {
 
     @ApiOperation("Find partner by document")
     @ApiResponse(code = 200, message = "OK", response = StandardResponsePartner.class)
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
     @GetMapping(value = "/partner/{document}", produces = "application/json")
     @ResponseBody
     public ResponseEntity<StandardResponsePartner> findByDocument(@PathVariable @ApiParam(required = true) String document) {
@@ -64,6 +68,7 @@ public class PartnerController {
 
     @ApiOperation("Delete partner")
     @ApiResponse(code = 204, message = "OK")
+    @CrossOrigin(origins = {"http://54.163.66.128:8080","http://localhost:8080","http://localhost:8081","http://localhost:8888","http://54.163.66.128:8081","http://204.236.210.118"},maxAge=4800, allowCredentials="false")
     @DeleteMapping(value = "/partner/{document}")
     @ResponseBody
     public ResponseEntity deletePartner(@PathVariable @ApiParam(required = true) String document) {
