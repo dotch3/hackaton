@@ -29,6 +29,7 @@
 		crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="css/style01.css">
+	<link rel="stylesheet" href="css/styleDetalhe.css">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -143,16 +144,26 @@
 			<div id="divDetalheItem">
 				<div id="divItem" class="container-fluid">
 					<div id="publicacoes" class="row">
-						<div class="col-xs-1"><span class="pub_imagem"><i class="fas fa-image"
-									style="font-size: 50px"></i></span></div>
+						<div class="col-xs-1">
+							<div class="detalhe-imagem">
+								<span class="pub_imagem"><i class="fas fa-image" style="font-size: 50px"></i></span><br>
+								<span class="pub_data detalhe-data "><i class="fas fa-image"
+										style="font-size: 50px"></i></span><br>
+							</div>
+
+						</div>
 						<div class="col-xs-1"></div>
 						<div class="col-xs-10">
 							<span class="pub_titulo">[titulo]</span><br />
 							<span class="pub_descricao">[descricao]</span><br />
-							<span class="pub_data">[data_pub]</span><br />
-							<span class="pub_tags">[tags]</span><br />
+							<p><b>*</b><span class="pub_observacao"
+									style="text-decoration: underline;">[observacao]</span></p><span
+								class="pub_tags detalhe-tags badge badge-pill badge-info">
+								[tags]</span><br />
 
-							<span class="pub_descricao">Somente posso emprestar nos finais de semana e feriados.</span>
+							<a href="#" class="pub_urlUserId">
+								<p class="detalhe-user"><i class="fas fa-user"></i><b>&nbsp; Proprietario</b></p>
+							</a>
 						</div>
 
 
@@ -160,64 +171,55 @@
 					<hr>
 				</div>
 			</div>
-
-			<div class="row">
-				<div class="col-xs-3"></div>
-				<div class="col-xs-6">
-					<div class="form-group">
-						<label for="txtValor" class="lblCampo">PAGO PELO EMPRÉSTIMO</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="txtValor" value="500" />
-							<span class="input-group-addon"><i class="fas fa-dollar-sign"
-									style="font-size: 15px;"></i></span>
+			<form action="JavaScript:sendJsonData()" enctype="multipart/form-data" class="container">
+				<div class="row">
+					<div class="col-xs-1"></div>
+					<div class="col-xs-10">
+						<div class="form-group">
+							<label for="pub_valor" class="lblCampo">PAGO PELO EMPRÉSTIMO</label>
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fas fa-dollar-sign"
+										style="font-size: 15px;"></i></span>
+								<input type="text" class="form-control pub_valor" id="pub_valor" name="pub_valor"
+									value="">
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="row container-fluid">
-				<div class="detalhe-item">
-					<div class="form-group container col-md-4">
-						<label for="dataSugestaoEmprestimo">Inicio empréstimo: </label>
-						<br>
-						<input class="bv" id="dataSugestaoEmprestimo" name="dataSugestaoEmprestimo" type="date" />
-					</div>
+					<div class="col-xs-1"></div>
 
-					<div class="form-group container col-md-4">
-						<label for="dataSugestaoDevolucao">Fim empréstimo: </label>
-						<br>
-						<input class="bv" id="dataSugestaoDevolucao" name="dataSugestaoDevolucao" type="date" />
-					</div>
 				</div>
-			</div>
-			<!-- <div class="row">
-				<div class="col-xs-3"></div>
-				<div class="detalhe-item">
-					<div class="col-xs-6">
-						<label for="txtDataIni" class="lblCampo">PERÍODO</label>
-					</div>
-					<div class="col-xs-6">
-						<div class="input-group">
-							<input class="bv" id="dataSugestaoEmprestimo" name="dataSugestaoEmprestimo" type="date" />
-
+				<div class="row container-fluid">
+					<!-- <p>&nbsp;</p> -->
+					</br>
+					<div class="row">
+						<div class="col-xs-1"></div>
+						<div class="col-xs-5 form-group">
+							<label for="dataSugestaoEmprestimo">INICIO EMPRESTIMO: </label>
+							<br>
+							<input class="bv" id="dataInicio" name="dataEmprestimo" type="date" />
 						</div>
+
+						<div class="col-xs-5 form-group ">
+							<label for="dataSugestaoDevolucao">FIM EMPRESTIMO: </label>
+							<br>
+							<input class="bv" id="dataFim" name="dataEmprestimo" type="date" />
+						</div>
+						<div class="col-xs-1"></div>
 					</div>
 				</div>
-				<div class="col-xs-6">
-					<div class="input-group">
-						<input class="bv" id="dataSugestaoDevolucao" name="dataSugestaoDevolucao" type="date" />
 
+				<br />
+				<p>&nbsp;</p>
+
+				<div class="row">
+					<div class="col text-center">
+						<!-- <a href="#" class="btn btn-warning btn-padrao" data-toggle="modal"
+							data-target=".modal-proposta">FAZER PROPOSTA</a> -->
+						<a href="#" type="submit" class="btn btn-warning btn-padrao">FAZER PROPOSTA</a>
 					</div>
 				</div>
-			</div> -->
-
-			<br />
-
-			<div class="row">
-				<div class="col text-center">
-					<a href="#" class="btn btn-warning btn-padrao" data-toggle="modal"
-						data-target=".modal-proposta">FAZER PROPOSTA</a>
-				</div>
-			</div>
+			</form>
+			<!-- End FORM -->
 			<br />
 			<div class="row">
 				<div class="col text-center">
@@ -232,7 +234,8 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-1"></div>
-							<div class="col-xs-10"><img src="images/menu_bottom.png" width="268" height="50" /></div>
+							<div class="col-xs-10"><img src="images/menu_bottom.png" width="268" height="50" />
+							</div>
 							<div class="col-xs-3"></div>
 						</div>
 					</div>
@@ -312,7 +315,100 @@
 				pagDetalhe();
 			});
 		</script>
+		<!-- Proposta-->
+		<!-- Convert to JSON -->
+		<script>
+			// Serializing the data and converting to json format
+			$.fn.serializeObject = function () {
+				var o = {};
+				var a = this.serializeArray();
+				$.each(a, function () {
+					if (o[this.name] !== undefined) {
+						if (!o[this.name].push) {
+							o[this.name] = [o[this.name]];
+						}
+						o[this.name].push(this.value || '');
+					} else {
+						o[this.name] = this.value || '';
+					}
+				});
+				return o;
+			};
 
+		</script>
+		<script>
+			function checkData(a) {
+				console.log(a);
+			}
+		</script>
+
+		<script>
+			// Sending the data
+			function sendJsonData() {
+				var jData = JSON.stringify($('form').serializeObject());
+				console.log('JSON', jData);
+				// Creating a XHR object
+				let xhr = new XMLHttpRequest();
+				let url = "http://54.163.66.128:8080/items/publish";
+				var response = '';
+
+				// open a connection
+				xhr.open("POST", url, true);
+
+				// Set the request header i.e. which type of content you are sending
+				xhr.setRequestHeader("Content-Type", "application/json");
+
+				// Create a state change callback
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+
+						// Print received data from server 
+						result = document.getElementById("result");
+						response = JSON.parse(this.responseText);
+						console.log('Response:', response["idItem"]);
+						result.innerHTML = "Item criado com sucesso!" + response["idItem"] + " - " + response["nome"];
+
+						//Redirect to Publish page
+						sendToPublish(jData, response["idItem"]);
+
+
+
+					}
+					else if (xhr.status === 400) {
+						result = document.getElementById("result");
+						response = JSON.parse(this.responseText);
+						result.innerHTML = "parece que esqueci alguma coisa.  -_-' <br>" + response["error"] + " - Status: " + response["status"];
+
+						console.log('Response:', response["idItem"]);
+					}
+
+					else if (xhr.status === 500) {
+						result = document.getElementById("result");
+						response = JSON.parse(this.responseText);
+						result.innerHTML = " -_-' <br>" + response["error"] + " - Status: " + response["status"];
+
+						console.log('Response:', response["idItem"]);
+					}
+				};
+
+				// Sending data with the request 
+				xhr.send(jData);
+
+			}
+
+			function storeUserDataInSession(itemId) {
+				// window.sessionStorage.setItem('itemData', itemData);
+				window.sessionStorage.setItem('itemId', itemId);
+			}
+			function sendToPublish(jData, itemId) {
+				console.log('Enviado o  item:', jData["nome"], itemId);
+				console.log('id stored in session:', itemId);
+				// storeUserDataInSession(jData, itemId);
+				storeUserDataInSession(itemId); //saving only the id
+
+				location.replace("Publish.htm");
+			};
+		</script>
 </body>
 
 </html>

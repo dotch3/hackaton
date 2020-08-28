@@ -59,11 +59,18 @@ function detalheItem(jsonObj, idItem) {
 
 	if (jsonObj.idItem !== null) {
 		if (jsonObj.idItem == idItem) {
-			document.getElementsByClassName("pub_tags")[numItem].innerHTML = jsonObj.tags;
-			document.getElementsByClassName("pub_imagem")[numItem].innerHTML = '<img src="data:image/png;base64,' + jsonObj.foto + '" width="60" height="60" />';
 			document.getElementsByClassName("pub_titulo")[numItem].innerHTML = jsonObj.nome;
 			document.getElementsByClassName("pub_descricao")[numItem].innerHTML = jsonObj.descricao;
+			document.getElementsByClassName("pub_imagem")[numItem].innerHTML = '<img src="data:image/png;base64,' + jsonObj.foto + '" width="60" height="60" />';
+			document.getElementsByClassName("pub_observacao")[numItem].innerHTML = jsonObj.observacao;
+			document.getElementsByClassName("pub_tags")[numItem].innerHTML = jsonObj.tags;
 			document.getElementsByClassName("pub_data")[numItem].innerHTML = jsonObj.dataPublicacao;
+
+			// Link User
+			var urlDetalheUser = 'DetalheUser.htm?id=' + jsonObj.idUserProprietario;
+			document.getElementsByClassName("pub_urlUserId")[numItem].href = urlDetalheUser;
+			document.getElementById("pub_valor").value = jsonObj.valor;
+
 		}
 		else {
 			$('.modal-carregando').modal('hide');

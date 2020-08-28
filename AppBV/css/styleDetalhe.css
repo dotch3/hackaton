@@ -1,0 +1,102 @@
+.detalhe-tags {
+  color: #fbf2f0;
+  font-size: 11px !important;
+}
+
+.detalhe-data {
+  color: rgb(33, 32, 32) !important;
+  text-align: center;
+  font-size: 10px !important;
+  font-style: italic !important;
+  margin-left: 1.2rem;
+}
+.detalhe-user {
+  margin-top: 0.9rem !important;
+  color: #ec7d2c !important;
+  font-size: medium !important;
+  text-align: left;
+}
+
+.pub_observacao {
+  font-size: 11px !important;
+  color: rgb(33, 32, 32) !important;
+}
+.pub_descricao {
+  font-size: 12px !important;
+}
+
+.pub_titulo {
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+
+.detalhe-imagem {
+  display: inline-block;
+}
+
+.badge {
+  background-color: #5bc0de !important;
+}
+
+.form-control {
+  font-size: 1.5rem !important;
+  padding-top: 0.175rem !important;
+  padding-right: 0.175rem !important;
+  padding-bottom: 0.175rem !important;
+  font-weight: 400 !important;
+}
+.form-group {
+  margin-bottom: 0.1rem;
+}
+.form-group label {
+  color: #48dce2;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+  margin-bottom: 0.1rem !important;
+}
+
+.form-group input {
+  border-radius: 0.5rem !important;
+  margin-bottom: 0.1rem !important;
+}
+.form-group input:focus {
+  border: 1px solid #12bbad;
+}
+
+.form-group textarea:focus {
+  border: 1px solid #12bbad;
+}
+.form-group .bv {
+  font-weight: 300;
+}
+.form-check {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+.datepicker,
+.table-condensed {
+  width: 220px;
+  height: 220px;
+  font-size: x-small;
+}
+
+.pub_valor {
+  padding-left: 20px;
+}
+
+.form-group textarea:focus {
+  border: 1px solid #12bbad;
+}
+.form-group .bv {
+  font-weight: 300;
+}
+.form-check {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+.datepicker,
+.table-condensed {
+  width: 220px;
+  height: 220px;
+  font-size: x-small;
+}
