@@ -2,25 +2,29 @@ package com.startupone.boavizinhanca.emprestimo.entity;
 
 import java.io.Serializable;
 
-public class FavoritoId implements Serializable {
+public class EmprestimoId implements Serializable {
 
-	private static final long serialVersionUID = 3467054586707201596L;
+	private static final long serialVersionUID = -2210174082763596583L;
 	
 	private Integer idUser;
 	private Integer idItem;
-	
+
 	public Integer getIdUser() {
 		return idUser;
 	}
-	public Integer getIdItem() {
-		return idItem;
-	}
+	
 	public void setIdUser(Integer idUser) {
 		this.idUser = idUser;
 	}
+
+	public Integer getIdItem() {
+		return idItem;
+	}
+
 	public void setIdItem(Integer idItem) {
 		this.idItem = idItem;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -29,6 +33,7 @@ public class FavoritoId implements Serializable {
 		result = prime * result + ((idUser == null) ? 0 : idUser.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -37,7 +42,7 @@ public class FavoritoId implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		FavoritoId other = (FavoritoId) obj;
+		EmprestimoId other = (EmprestimoId) obj;
 		if (idItem == null) {
 			if (other.idItem != null)
 				return false;
@@ -50,4 +55,7 @@ public class FavoritoId implements Serializable {
 			return false;
 		return true;
 	}
+
+
+
 }
