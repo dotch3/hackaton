@@ -1,7 +1,7 @@
 COMO RODAR O FRONTEND DO APP BOA VIZINHANÇA
 ===================================================================
 
-1) Descompactar o arquivo AppBoaVizinhanca_v0.5.zip em qualquer diretório do computador com Internet e um navegador (Firefox, Chrome, Safari, Edge, etc);
+1) Descompactar o arquivo AppBV em qualquer diretório do computador com Internet e um navegador (Firefox, Chrome, Safari, Edge, etc);
 
 2) Rodar o arquivo Default.htm no navegador (de preferência Firefox ou Chrome que tem um modo que simula smartphone);
 
@@ -9,7 +9,7 @@ COMO RODAR O FRONTEND DO APP BOA VIZINHANÇA
 
 2.2) Abriu no Firefox? Aperte CTRL + Shift + M. A opção se chama "Responsive design mode".
 
-3) No Default.htm, clique no botão "ENTRAR" para ir pro link Itens.htm;
+3) No Default.htm, clique no botão "ENTRAR" para ir pro link Itens.htm; (usuario de teste. maestro@teste.com/12345)
 
 4) O Itens.htm acessa um JSON* que criei hospedei no GIT para listar os itens para empréstimo no Boa Vizinhança;
 
