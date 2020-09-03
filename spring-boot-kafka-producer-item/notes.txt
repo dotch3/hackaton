@@ -3,3 +3,19 @@
 # bash send-order.sh "{\"identifier\": \"1\",\"customer\": \"Customer eee\", \"value\": 1500}"
 # or
 # .send-order.sh "{\"identifier\": \"1\",\"customer\": \"Customer eee\", \"value\": 1500}"
+
+
+create topic:
+
+
+docker-compose exec kafka  kafka-topics --create --topic item-cadastrado --partitions 1 --replication-factor 1 --if-not-exists --zookeeper zookeeper:2181
+
+
+docker-compose exec kafka  kafka-topics --describe --topic item-cadastrado --zookeeper zookeeper:2181 
+
+producing 100 messages:
+	docker-compose exec kafka  bash -c "seq 100 | kafka-console-producer --request-required-acks 1 --broker-list localhost:9092 --topic item-cadastrado && echo 'Produced 100 messages.'"
+
+
+consuming messages:
+	docker-compose exec kafka  kafka-console-consumer --bootstrap-server localhost:9092 --topic item-cadastrado --from-beginning --max-messages 100
