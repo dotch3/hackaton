@@ -9,7 +9,7 @@
 		<version>2.3.3.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.startupone.boavizinhanca</groupId>
+	<groupId>com.hackaton.spring.kafka</groupId>
 	<artifactId>items</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>items</name>
