@@ -1,0 +1,5 @@
+# calling the producer:
+
+# bash send-order.sh "{\"identifier\": \"1\",\"customer\": \"Customer eee\", \"value\": 1500}"
+# or
+# .send-order.sh "{\"identifier\": \"1\",\"customer\": \"Customer eee\", \"value\": 1500}"

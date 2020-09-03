@@ -23,7 +23,7 @@
 		<java.version>1.8</java.version>
 
 		<spring-kafka.version>2.2.2.RELEASE</spring-kafka.version>
-		<lombok.version>1.16.10</lombok.version>
+		<lombok.version>1.18.12</lombok.version>
 		<jackson.version>2.9.8</jackson.version>
 
 		<docker.spotify.plugin.version>1.4.10</docker.spotify.plugin.version>
@@ -32,15 +32,27 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
-		</dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<scope>provided</scope>
+	</dependency>
 	</dependencies>
 
 	<modules>
         <module>producer</module>
 		<module>consumer</module>
     </modules>
+	<repositories>
+    <repository>
+        <id>spring-releases</id>
+        <url>https://repo.spring.io/libs-release</url>
+    </repository>
+</repositories>
+<pluginRepositories>
+    <pluginRepository>
+        <id>spring-releases</id>
+        <url>https://repo.spring.io/libs-release</url>
+    </pluginRepository>
+</pluginRepositories>
 
 </project>
